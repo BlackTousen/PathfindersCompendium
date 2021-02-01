@@ -1,4 +1,5 @@
-﻿using System;
+﻿using PathfindersCompendium.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -11,6 +12,5 @@ namespace PathfindersCompendium.Repositories
         void Add(UserProfile userProfile);
         UserProfile GetByFirebaseUserId(string firebaseUserId);
         void Update(UserProfile userProfile);
-        int AdminCount();
     }
 }

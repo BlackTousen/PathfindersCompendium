@@ -24,12 +24,8 @@ namespace PathfindersCompendium.Models
         [Required]
         [DataType(DataType.EmailAddress)]
         public string Email { get; set; }
-        public DateTime CreateDateTime { get; set; }
         [MaxLength(255)]
         [DataType(DataType.ImageUrl)]
-        public string ImageLocation { get; set; }
-        public int UserTypeId { get; set; }
-        public int UserStatusId { get; set; }
         public List<Sheet> Sheets { get; set; }
     }
 }

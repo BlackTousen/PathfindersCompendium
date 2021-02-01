@@ -1,4 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using PathfindersCompendium.Data;
+using PathfindersCompendium.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -18,24 +20,18 @@ namespace PathfindersCompendium.Repositories
         public List<UserProfile> GetProfiles()
         {
             return _context.UserProfile
-                .Include(up => up.UserType)
-                .Include(up => up.Post)
                 .OrderBy(up => up.DisplayName)
                 .ToList();
         }
         public UserProfile GetProfileById(int id)
         {
             return _context.UserProfile
-                .Include(up => up.UserType)
-                .Include(up => up.Post)
                 .FirstOrDefault(up => up.Id == id);
         }
 
         public UserProfile GetByFirebaseUserId(string firebaseUserId)
         {
             return _context.UserProfile
-                .Include(up => up.UserType)
-                .Include(up => up.Post)
                 .FirstOrDefault(up => up.FirebaseUserId == firebaseUserId);
 
         }
@@ -51,12 +47,5 @@ namespace PathfindersCompendium.Repositories
             _context.SaveChanges();
         }
 
-        public int AdminCount()
-        {
-            return _context.UserProfile
-                .Where(up => up.UserTypeId == 1)
-                .Where(up => up.UserStatusId == 1)
-                .Count();
-        }
     }
 }
