@@ -10,7 +10,8 @@ namespace PathfindersCompendium.Models
         public int Id { get; set; }
         public int UserProfileId { get; set; }
         public UserProfile UserProfile { get; set; }
-        public List<Feat> Feats { get; set; }
+        public List<Feat> Feat { get; set; }
+        public List<Spell> Spell { get; set; }
         public string Name { get; set; }
         public string Alignment { get; set; }
         public string Deity { get; set; }
@@ -21,6 +22,7 @@ namespace PathfindersCompendium.Models
         public string Hair { get; set; }
         public string Eyes { get; set; }
         public int ClassId { get; set; }
+        public Class Class { get; set; }
         public string Height { get; set; }
         public int Age { get; set; }
         public int Weight { get; set; }

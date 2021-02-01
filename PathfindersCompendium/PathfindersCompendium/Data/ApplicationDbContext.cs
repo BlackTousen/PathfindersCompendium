@@ -17,6 +17,8 @@ namespace PathfindersCompendium.Data
         public DbSet<Sheet> Sheet { get; set; }
         public DbSet<Feat> Feat { get; set; }
         public DbSet<Spell> Spell { get; set; }
+        public DbSet<FeatSheet> FeatSheet { get; set; }
+        public DbSet<SpellSheet> SpellSheet { get; set; }
         public DbSet<Class> Class { get; set; }
     }
 }
