@@ -5,6 +5,7 @@ using PathfindersCompendium.Repositories;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection;
 using System.Security.Claims;
 using System.Threading.Tasks;
 
@@ -30,6 +31,36 @@ namespace PathfindersCompendium.Controllers
             sheets = _repo.GetSheetsByUserId(user.Id);
             return Ok(sheets);
 
+        }
+        [HttpPost]
+        public IActionResult CreateUserSheet(Sheet sheet)
+        {
+            var user = GetCurrentUserProfile();
+            if (sheet.UserProfileId == 0) { sheet.UserProfileId = user.Id; }
+            _repo.Add(sheet);
+            return NoContent();
+        }
+        [HttpPut("{id}")]
+        public IActionResult UpdateSheet(int id, Sheet sheet)
+        {
+            var user = GetCurrentUserProfile();
+            if (sheet.UserProfileId != user.Id) { return Unauthorized(); }
+            var existingSheet = _repo.GetSheetById(id);
+            foreach (PropertyInfo prop in existingSheet.GetType().GetProperties())
+            {
+                var value = prop.GetValue(existingSheet, null);
+                var compare = prop.GetValue(sheet, null);
+                if (value.GetType() != typeof(Class) && !value.Equals(compare))
+                {
+                    if (compare != null)
+                    {
+                        PropertyInfo _propertyInfo = existingSheet.GetType().GetProperty(prop.Name);
+                        _propertyInfo.SetValue(existingSheet, compare, null);
+                    }
+                }
+            }
+            _repo.Update(existingSheet);
+            return Ok(existingSheet);
         }
         private UserProfile GetCurrentUserProfile()
         {
