@@ -3,6 +3,7 @@ import { TabPanel } from "react-tabs";
 import { Row, Col, Button, Form, Label, Input, FormGroup } from "reactstrap";
 import { UserProfileContext } from "../providers/UserProfileProvider";
 import Attributes from "./Attributes";
+import Skills from "./Skills";
 
 const CharacterSheet = ({
   sheet,
@@ -50,7 +51,6 @@ const CharacterSheet = ({
     "Charisma",
   ];
   const skills = [
-    "Acquiring Skills",
     "Acrobatics",
     "Appraise",
     "Bluff",
@@ -304,6 +304,18 @@ const CharacterSheet = ({
               <Attributes
                 key={att}
                 attribute={att}
+                handleChange={handleChange}
+                newSheet={sheetToEdit}
+              />
+            );
+          })}
+        </FormGroup>
+        <FormGroup>
+          {skills.map((att) => {
+            return (
+              <Skills
+                key={att}
+                skill={att}
                 handleChange={handleChange}
                 newSheet={sheetToEdit}
               />

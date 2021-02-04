@@ -31,24 +31,7 @@ const Attributes = ({ attribute, handleChange, newSheet }) => {
     }
   };
   const getName = (stat) => {
-    if (stat === "Strength") {
-      return "str";
-    }
-    if (stat === "Dexterity") {
-      return "dex";
-    }
-    if (stat === "Constitution") {
-      return "con";
-    }
-    if (stat === "Wisdom") {
-      return "wis";
-    }
-    if (stat === "Intelligence") {
-      return "int";
-    }
-    if (stat === "Charisma") {
-      return "cha";
-    }
+    return stat[0].toLowerCase() + stat.slice(1, 3);
   };
   const UpdateTemp = (stat = 0, e) => {
     let dump = tempMods;

@@ -73,8 +73,8 @@ const HomePageManager = () => {
     setSheetState(true);
   };
   while (sheets === undefined) {
-    console.log(sheets === undefined);
-    console.log(sheetState);
+    //  console.log(sheets === undefined);
+    //  console.log(sheetState);
     if (sheets !== undefined) {
       setTimeout(() => {
         setSheetState(true);
