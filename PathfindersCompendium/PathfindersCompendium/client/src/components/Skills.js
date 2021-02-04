@@ -86,17 +86,6 @@ const Skills = ({ skill, handleChange, newSheet }) => {
               )}
             />
           </Col>
-          <Col size="sm" sm={1}>
-            <Input
-              id={attribute}
-              name={getName(attribute) + "trash"}
-              defaultValue={0}
-              onChange={(e) => {
-                UpdateTemp(attribute, e);
-                handleChange(e);
-              }}
-            />
-          </Col>
         </Row>
       </Col>
     </>
