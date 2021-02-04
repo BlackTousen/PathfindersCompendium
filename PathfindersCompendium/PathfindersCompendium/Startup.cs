@@ -33,6 +33,7 @@ namespace PathfindersCompendium
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddTransient<IUserProfileRepository, UserProfileRepository>();
+            services.AddTransient<IClassRepository, ClassRepository>();
             services.AddTransient<ICharacterSheetRepository, CharacterSheetRepository>();
             services.AddDbContext<ApplicationDbContext>(options => options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
             var firebaseProjectId = Configuration.GetValue<string>("FirebaseProjectId");
