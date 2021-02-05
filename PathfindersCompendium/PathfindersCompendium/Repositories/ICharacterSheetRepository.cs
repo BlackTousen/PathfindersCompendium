@@ -7,5 +7,8 @@ namespace PathfindersCompendium.Repositories
     {
         Sheet GetSheetById(int id);
         List<Sheet> GetSheetsByUserId(int id);
+        void Add(Sheet sheet);
+        void Update(Sheet existingSheet);
+        void Delete(Sheet sheet);
     }
 }
