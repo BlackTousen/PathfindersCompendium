@@ -3,6 +3,8 @@ import { TabPanel } from "react-tabs";
 import { Row, Col, Button, Form, Label, Input, FormGroup } from "reactstrap";
 import { UserProfileContext } from "../providers/UserProfileProvider";
 import Attributes from "./Attributes";
+import Defense from "./Defense";
+import Offense from "./Offense";
 import Skills from "./Skills";
 
 const CharacterSheet = ({
@@ -13,7 +15,6 @@ const CharacterSheet = ({
   classes,
 }) => {
   const { getCurrentUser, getToken } = useContext(UserProfileContext);
-  console.log("reached");
 
   const SaveCharacter = (sheet) => {
     return getToken().then((token) => {
@@ -24,6 +25,17 @@ const CharacterSheet = ({
           Authorization: `Bearer ${token}`,
         },
         body: JSON.stringify(sheet),
+      });
+    });
+  };
+  const DeleteCharacter = (sheet) => {
+    console.log(sheet);
+    return getToken().then((token) => {
+      return fetch(`/api/CharacterSheet/${sheet.id}`, {
+        method: "DELETE",
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
       });
     });
   };
@@ -80,7 +92,7 @@ const CharacterSheet = ({
     "Profession",
     "Ride",
     "Sense Motive",
-    "Sleight of Hand",
+    "Sleight Of Hand",
     "Spellcraft",
     "Stealth",
     "Survival",
@@ -298,6 +310,8 @@ const CharacterSheet = ({
             </FormGroup>
           </Col>
         </Row>
+        <Defense handleChange={handleChange} newSheet={sheetToEdit} />
+        <Offense handleChange={handleChange} newSheet={sheetToEdit} />
         <FormGroup>
           {attributes.map((att) => {
             return (
@@ -322,8 +336,21 @@ const CharacterSheet = ({
             );
           })}
         </FormGroup>
+        <FormGroup>
+          <Row>
+            Speed:
+            <Col md={2}>Land: {sheet.landSpeed}</Col>
+            <Col md={2}>Run: {sheet.landSpeed * 4}</Col>
+            <Col md={2}>Swim: {sheet.swimSpeed}</Col>
+            <Col md={2}>Climb: {sheet.climbSpeed}</Col>
+            <Col md={2}>Fly: {sheet.flySpeed}</Col>
+          </Row>
+        </FormGroup>
         <Button onClick={(e) => SaveCharacter(sheetToEdit).then(getSheets)}>
           Save Changes
+        </Button>
+        <Button onClick={(e) => DeleteCharacter(sheetToEdit).then(getSheets)}>
+          Delete Character
         </Button>
       </Form>
     </>

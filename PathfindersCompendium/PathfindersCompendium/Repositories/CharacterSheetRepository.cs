@@ -91,6 +91,10 @@ namespace PathfindersCompendium.Repositories
             _context.Entry(sheet).State = EntityState.Modified;
             _context.SaveChanges();
         }
-
+        public void Delete(Sheet sheet)
+        {
+            _context.Sheet.Remove(sheet);
+            _context.SaveChanges();
+        }
     }
 }

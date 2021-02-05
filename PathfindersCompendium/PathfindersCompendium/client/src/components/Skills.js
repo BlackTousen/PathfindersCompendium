@@ -138,7 +138,7 @@ const Skills = ({ skill, handleChange, newSheet }) => {
         "Escape Artist",
         "Fly",
         "Ride",
-        "Sleight of Hand",
+        "Sleight Of Hand",
         "Stealth",
       ].includes(skill)
     ) {
@@ -159,7 +159,7 @@ const Skills = ({ skill, handleChange, newSheet }) => {
             <Input
               id={skill}
               name={getName(skill)}
-              defaultValue={newSheet[skill]}
+              defaultValue={newSheet[getName(skill)]}
               onChange={(e) => handleChange(e)}
             />
           </Col>

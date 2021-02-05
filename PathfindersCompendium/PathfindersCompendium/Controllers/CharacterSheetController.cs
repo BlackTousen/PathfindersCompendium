@@ -154,6 +154,15 @@ namespace PathfindersCompendium.Controllers
             _repo.Update(existingSheet);
             return Ok(existingSheet);
         }
+        [HttpDelete("{id}")]
+        public IActionResult DeleteSheet(int id)
+        {
+            var user = GetCurrentUserProfile();
+            var existingSheet = _repo.GetSheetById(id);
+            if (user.Id != existingSheet.UserProfileId) { return BadRequest(); }
+            _repo.Delete(existingSheet);
+            return NoContent();
+        }
         private UserProfile GetCurrentUserProfile()
         {
             var firebaseUserId = User.FindFirst(ClaimTypes.NameIdentifier).Value;

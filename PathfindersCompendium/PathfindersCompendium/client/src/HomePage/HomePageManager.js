@@ -3,7 +3,6 @@ import { TabList, Tabs, Tab, TabPanel } from "react-tabs";
 import { Container, Row, Col, Button } from "reactstrap";
 import { UserProfileContext } from "../providers/UserProfileProvider";
 import "react-tabs/style/react-tabs.css";
-import Attributes from "../components/Attributes";
 import CharacterSheet from "../components/CharacterSheet";
 
 const HomePageManager = () => {
@@ -19,7 +18,6 @@ const HomePageManager = () => {
       .then(setClasses)
       .then(getSheets)
       .then((res) => {
-        setSheets(res);
         ListSheets();
       });
   }, []);
@@ -32,7 +30,9 @@ const HomePageManager = () => {
         headers: {
           Authorization: `Bearer ${token}`,
         },
-      }).then((res) => res.json());
+      })
+        .then((res) => res.json())
+        .then(setSheets);
     });
   };
   const getClasses = () => fetch(`/api/Classes`).then((res) => res.json());
@@ -72,15 +72,9 @@ const HomePageManager = () => {
     setEditing(sheets[0]);
     setSheetState(true);
   };
+
   while (sheets === undefined) {
-    //  console.log(sheets === undefined);
-    //  console.log(sheetState);
-    if (sheets !== undefined) {
-      setTimeout(() => {
-        setSheetState(true);
-      }, 1000);
-    }
-    return "Loading...";
+    return null;
   }
 
   return (
