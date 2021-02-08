@@ -1,7 +1,10 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { Col, Input, Label, Row } from "reactstrap";
+import { InformationDataContext } from "../providers/InformationDataProvider";
 
 const Skills = ({ skill, handleChange, newSheet }) => {
+  const { setToggle } = useContext(InformationDataContext);
+
   const [tempMods, setTempMods] = useState({
     str: 0,
     dex: 0,
@@ -152,7 +155,12 @@ const Skills = ({ skill, handleChange, newSheet }) => {
     <>
       <Col md={{ offset: 2 }}>
         <Row>
-          <Label size="sm" md={2} for={skill}>
+          <Label
+            size="sm"
+            md={2}
+            for={skill}
+            onClick={(e) => setToggle(getName(skill))}
+          >
             {skill}
           </Label>
           <Col size="sm" sm={1}>

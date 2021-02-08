@@ -7,8 +7,10 @@ namespace PathfindersCompendium.Models
 {
     public class SpellSheet
     {
+
         public int Id { get; set; }
         public int SheetId { get; set; }
+
         public int SpellId { get; set; }
 
     }

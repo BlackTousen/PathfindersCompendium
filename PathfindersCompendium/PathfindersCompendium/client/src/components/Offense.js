@@ -1,7 +1,9 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Col, Input, Label, Row } from "reactstrap";
+import { InformationDataContext } from "../providers/InformationDataProvider";
 
 const Offense = ({ handleChange, newSheet }) => {
+  const { setToggle } = useContext(InformationDataContext);
   const CalcBAB = (num) => {
     console.log(num);
     if (num < 6) {
@@ -27,7 +29,7 @@ const Offense = ({ handleChange, newSheet }) => {
     <>
       <Col sm={{ offset: 2 }}>
         <Row>
-          <Label size="sm" md={2}>
+          <Label size="sm" md={2} onClick={(e) => setToggle("bab")}>
             Base Attack Bonus:
           </Label>
           <Col size="sm" sm={1}>
@@ -96,6 +98,7 @@ const Offense = ({ handleChange, newSheet }) => {
               onChange={(e) => handleChange(e)}
             />
           </Col>
+
           <Col size="sm" sm={1}>
             <Input
               readOnly

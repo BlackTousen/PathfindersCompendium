@@ -1,12 +1,14 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { Col, Input, Label, Row } from "reactstrap";
+import { InformationDataContext } from "../providers/InformationDataProvider";
 
 const Defense = ({ handleChange, newSheet }) => {
+  const { setToggle } = useContext(InformationDataContext);
   return (
     <>
       <Col sm={{ offset: 2 }}>
         <Row>
-          <Label size="sm" md={2}>
+          <Label size="sm" md={2} onClick={(e) => setToggle("AC")}>
             AC
           </Label>
           <Col size="sm" sm={1}>

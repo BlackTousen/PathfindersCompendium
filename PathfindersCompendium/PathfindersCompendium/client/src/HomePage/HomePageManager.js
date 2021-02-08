@@ -1,8 +1,8 @@
 import React, { useContext, useEffect, useState } from "react";
 import { TabList, Tabs, Tab, TabPanel } from "react-tabs";
+import "react-tabs/style/react-tabs.css";
 import { Container, Row, Col, Button } from "reactstrap";
 import { UserProfileContext } from "../providers/UserProfileProvider";
-import "react-tabs/style/react-tabs.css";
 import CharacterSheet from "../components/CharacterSheet";
 
 const HomePageManager = () => {

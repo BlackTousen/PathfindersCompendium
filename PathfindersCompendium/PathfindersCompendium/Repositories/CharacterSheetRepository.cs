@@ -25,29 +25,29 @@ namespace PathfindersCompendium.Repositories
                 .Include(s => s.UserProfile)
                 .Include(s => s.Class)
                 .ToList();
-            foreach (var sheet in completeList)
-            {
-                List<Spell> spells = new List<Spell>();
-                List<Feat> feats = new List<Feat>();
-                var spellList = _context.SpellSheet.Where(sp => sp.SheetId == sheet.Id).ToList();
-                if (spellList.Count() > 0)
-                {
-                    foreach (var spell in spellList)
-                    {
-                        spells.Add(_context.Spell.Where(sp => sp.Id == spell.Id).FirstOrDefault());
-                    }
-                }
-                var featList = _context.FeatSheet.Where(sp => sp.SheetId == sheet.Id).ToList();
-                if (featList.Count() > 0)
-                {
-                    foreach (var feat in featList)
-                    {
-                        feats.Add(_context.Feat.Where(sp => sp.Id == feat.Id).FirstOrDefault());
-                    }
-                }
-                if (spells.Count() != 0) { sheet.Spell.AddRange(spells); }
-                if (feats.Count() != 0) { sheet.Feat.AddRange(feats); }
-            }
+            //foreach (var sheet in completeList)
+            //{
+            //    List<Spell> spells = new List<Spell>();
+            //    List<Feat> feats = new List<Feat>();
+            //    var spellList = _context.SpellSheet.Where(sp => sp.SheetId == sheet.Id).ToList();
+            //    if (spellList.Count() > 0)
+            //    {
+            //        foreach (var spell in spellList)
+            //        {
+            //            spells.Add(_context.Spell.Where(sp => sp.Id == spell.Id).FirstOrDefault());
+            //        }
+            //    }
+            //    var featList = _context.FeatSheet.Where(sp => sp.SheetId == sheet.Id).ToList();
+            //    if (featList.Count() > 0)
+            //    {
+            //        foreach (var feat in featList)
+            //        {
+            //            feats.Add(_context.Feat.Where(sp => sp.Id == feat.Id).FirstOrDefault());
+            //        }
+            //    }
+            //    if (spells.Count() != 0) { sheet.Spell.AddRange(spells); }
+            //    if (feats.Count() != 0) { sheet.Feat.AddRange(feats); }
+            //}
             return completeList;
 
 
@@ -59,26 +59,26 @@ namespace PathfindersCompendium.Repositories
                 .Include(s => s.UserProfile)
                 .Include(s => s.Class)
                 .FirstOrDefault();
-            List<Spell> spells = new List<Spell>();
-            List<Feat> feats = new List<Feat>();
-            var spellList = _context.SpellSheet.Where(sp => sp.SheetId == sheet.Id).ToList();
-            if (spellList.Count() > 0)
-            {
-                foreach (var spell in spellList)
-                {
-                    spells.Add(_context.Spell.Where(sp => sp.Id == spell.Id).FirstOrDefault());
-                }
-            }
-            var featList = _context.FeatSheet.Where(sp => sp.SheetId == sheet.Id).ToList();
-            if (featList.Count() > 0)
-            {
-                foreach (var feat in featList)
-                {
-                    feats.Add(_context.Feat.Where(sp => sp.Id == feat.Id).FirstOrDefault());
-                }
-            }
-            if (spells.Count() != 0) { sheet.Spell.AddRange(spells); }
-            if (feats.Count() != 0) { sheet.Feat.AddRange(feats); }
+            //List<Spell> spells = new List<Spell>();
+            //List<Feat> feats = new List<Feat>();
+            //var spellList = _context.SpellSheet.Where(sp => sp.SheetId == sheet.Id).ToList();
+            //if (spellList.Count() > 0)
+            //{
+            //    foreach (var spell in spellList)
+            //    {
+            //        spells.Add(_context.Spell.Where(sp => sp.Id == spell.Id).FirstOrDefault());
+            //    }
+            //}
+            //var featList = _context.FeatSheet.Where(sp => sp.SheetId == sheet.Id).ToList();
+            //if (featList.Count() > 0)
+            //{
+            //    foreach (var feat in featList)
+            //    {
+            //        feats.Add(_context.Feat.Where(sp => sp.Id == feat.Id).FirstOrDefault());
+            //    }
+            //}
+            //if (spells.Count() != 0) { sheet.Spell.AddRange(spells); }
+            //if (feats.Count() != 0) { sheet.Feat.AddRange(feats); }
             return sheet;
         }
         public void Add(Sheet sheet)

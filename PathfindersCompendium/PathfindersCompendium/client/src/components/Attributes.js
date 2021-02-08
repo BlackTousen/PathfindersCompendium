@@ -1,7 +1,9 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { Col, Input, Label, Row } from "reactstrap";
+import { InformationDataContext } from "../providers/InformationDataProvider";
 
 const Attributes = ({ attribute, handleChange, newSheet }) => {
+  const { setToggle } = useContext(InformationDataContext);
   const [tempMods, setTempMods] = useState({
     str: 0,
     dex: 0,
@@ -31,6 +33,7 @@ const Attributes = ({ attribute, handleChange, newSheet }) => {
     }
   };
   const getName = (stat) => {
+    console.log(stat[0].toLowerCase() + stat.slice(1, 3));
     return stat[0].toLowerCase() + stat.slice(1, 3);
   };
   const UpdateTemp = (stat = 0, e) => {
@@ -85,7 +88,12 @@ const Attributes = ({ attribute, handleChange, newSheet }) => {
     <>
       <Col md={{ offset: 2 }}>
         <Row>
-          <Label size="sm" md={2} for={attribute}>
+          <Label
+            size="sm"
+            md={2}
+            for={attribute}
+            onClick={(e) => setToggle(getName(attribute))}
+          >
             {attribute}
           </Label>
           <Col size="sm" sm={1}>
