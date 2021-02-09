@@ -37,6 +37,7 @@ namespace PathfindersCompendium
             services.AddTransient<IFeatRepository, FeatRepository>();
             services.AddTransient<ISpellRepository, SpellRepository>();
             services.AddTransient<IFeatSheetRepository, FeatSheetRepository>();
+            services.AddTransient<ISpellSheetRepository, SpellSheetRepository>();
             services.AddTransient<ICharacterSheetRepository, CharacterSheetRepository>();
             services.AddDbContext<ApplicationDbContext>(options => options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
             var firebaseProjectId = Configuration.GetValue<string>("FirebaseProjectId");

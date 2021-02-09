@@ -14,7 +14,6 @@ const InformationViews = () => {
   return (
     <>
       <Container>
-        {console.log(dataArray[toggle])}
         <div style={{ textAlign: "left" }}>{dataArray[toggle]}</div>
       </Container>
     </>

@@ -12,6 +12,7 @@ namespace PathfindersCompendium.Models
         public int SheetId { get; set; }
 
         public int SpellId { get; set; }
+        public Spell Spell { get; set; }
 
     }
 }

@@ -60,7 +60,6 @@ const HomePageManager = () => {
   };
 
   const ListSheets = () => {
-    console.log(sheets);
     if (sheets === undefined) {
       setSheetState(false);
       return;
@@ -108,12 +107,15 @@ const HomePageManager = () => {
                   );
                 })}
                 {sheets[3] === undefined ? (
-                  <Button
-                    color="primary"
-                    onClick={(e) => AddCharacter().then(getSheets)}
-                  >
-                    Add Character
-                  </Button>
+                  <>
+                    <br></br>
+                    <Button
+                      color="primary"
+                      onClick={(e) => AddCharacter().then(getSheets)}
+                    >
+                      Add Character
+                    </Button>
+                  </>
                 ) : null}
               </Tabs>
             </Col>

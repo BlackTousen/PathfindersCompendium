@@ -2,10 +2,13 @@ import React, { useContext, useEffect, useState } from "react";
 import {
   Button,
   Col,
+  Container,
   Input,
   Label,
   ListGroup,
   ListGroupItem,
+  ListGroupItemHeading,
+  ListGroupItemText,
   ModalFooter,
   Row,
 } from "reactstrap";
@@ -22,7 +25,10 @@ const Feats = ({ newSheet, handleChange }) => {
 
   useEffect(() => {
     GetFeats();
+    GetSheetFeats();
   }, []);
+  useEffect(() => {}, [userFeats]);
+
   const GetSheetFeats = (_) => {
     return getToken().then((token) =>
       fetch(`/api/featsheet/${newSheet.id}`)
@@ -54,6 +60,19 @@ const Feats = ({ newSheet, handleChange }) => {
       })
     );
   };
+  const RemoveFromSheet = (userFeat) => {
+    if (userFeat.id === 0) {
+      return;
+    }
+    return getToken().then((token) =>
+      fetch(`/api/featsheet/${userFeat.id}`, {
+        method: "DELETE",
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      })
+    );
+  };
 
   while (feats[0] === undefined) {
     return null;
@@ -71,7 +90,7 @@ const Feats = ({ newSheet, handleChange }) => {
           Please select a feat.
         </option>
         {feats.map((feat) => {
-          Information[getName(`${feat.name} - ${feat.type}`)] = (
+          Information[getName(`${feat.name} (${feat.type})`)] = (
             <>
               <p>
                 <b>
@@ -96,19 +115,41 @@ const Feats = ({ newSheet, handleChange }) => {
           );
           return (
             <option selected={feat.id == featToAdd} value={feat.id}>
-              {feat.name} - {feat.type}
+              {feat.name} ({feat.type})
             </option>
           );
         })}
       </Input>
-      <ListGroup>
-        {userFeats.map((uf) => (
-          <ListGroupItem>{uf.name}</ListGroupItem>
-        ))}
-      </ListGroup>
-      <Button color="primary" onClick={(e) => AddToSheet(featToAdd)}>
+      <br></br>
+      <Button
+        color="success"
+        onClick={(e) => AddToSheet(featToAdd).then(GetSheetFeats)}
+      >
         Add To Sheet
       </Button>
+      <Container>
+        <ListGroup>
+          {userFeats.map((uf) => (
+            <>
+              <span>
+                <ListGroupItemHeading
+                  onClick={(e) =>
+                    setToggle(getName(`${uf.feat.name} - ${uf.feat.type}`))
+                  }
+                >
+                  {uf.feat.name}{" "}
+                  <Button
+                    onClick={(e) => RemoveFromSheet(uf).then(GetSheetFeats)}
+                  >
+                    Remove
+                  </Button>
+                </ListGroupItemHeading>
+                <ListGroupItemText>{uf.feat.benefit}</ListGroupItemText>
+              </span>
+            </>
+          ))}
+        </ListGroup>
+      </Container>
     </>
   );
 };

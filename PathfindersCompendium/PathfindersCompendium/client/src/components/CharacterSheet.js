@@ -43,7 +43,6 @@ const CharacterSheet = ({
     });
   };
   const DeleteCharacter = (sheet) => {
-    console.log(sheet);
     return getToken().then((token) => {
       return fetch(`/api/CharacterSheet/${sheet.id}`, {
         method: "DELETE",
@@ -56,6 +55,7 @@ const CharacterSheet = ({
   const handleChange = (e) => {
     const newSheet = { ...sheetToEdit };
     newSheet[e.target.name] = e.target.value;
+    console.log(e.target.name);
     setEditing(newSheet);
   };
 
@@ -399,10 +399,18 @@ const CharacterSheet = ({
           <Spells newSheet={sheetToEdit} handleChange={handleChange} />
         </TabPanel>
       </Tabs>
-      <Button onClick={(e) => SaveCharacter(sheetToEdit).then(getSheets)}>
+      <br></br>
+      <Button
+        color="primary"
+        onClick={(e) => SaveCharacter(sheetToEdit).then(getSheets)}
+      >
         Save Changes
       </Button>
-      <Button onClick={(e) => DeleteCharacter(sheetToEdit).then(getSheets)}>
+      {"   "}
+      <Button
+        color="danger"
+        onClick={(e) => DeleteCharacter(sheetToEdit).then(getSheets)}
+      >
         Delete Character
       </Button>
     </>

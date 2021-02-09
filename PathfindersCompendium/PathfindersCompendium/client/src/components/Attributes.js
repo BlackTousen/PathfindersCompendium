@@ -33,7 +33,6 @@ const Attributes = ({ attribute, handleChange, newSheet }) => {
     }
   };
   const getName = (stat) => {
-    console.log(stat[0].toLowerCase() + stat.slice(1, 3));
     return stat[0].toLowerCase() + stat.slice(1, 3);
   };
   const UpdateTemp = (stat = 0, e) => {

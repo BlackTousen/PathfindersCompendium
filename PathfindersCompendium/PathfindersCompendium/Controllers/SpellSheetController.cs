@@ -12,12 +12,12 @@ namespace PathfindersCompendium.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class FeatSheetController : ControllerBase
+    public class SpellSheetController : ControllerBase
     {
-        private readonly IFeatSheetRepository _repo;
         private readonly ICharacterSheetRepository _sheetRepo;
+        private readonly ISpellSheetRepository _repo;
         private readonly IUserProfileRepository _userRepo;
-        public FeatSheetController(IFeatSheetRepository repo, IUserProfileRepository userRepo, ICharacterSheetRepository characterSheetRepository)
+        public SpellSheetController(ISpellSheetRepository repo, IUserProfileRepository userRepo, ICharacterSheetRepository characterSheetRepository)
         {
             _repo = repo;
             _userRepo = userRepo;
@@ -31,21 +31,21 @@ namespace PathfindersCompendium.Controllers
             return Ok(feats);
         }
         [HttpPost()]
-        public IActionResult AddToSheet(FeatSheet featSheet)
+        public IActionResult AddToSheet(SpellSheet spellSheet)
         {
             //var user = GetCurrentUserProfile();
-            _repo.Add(featSheet);
+            _repo.Add(spellSheet);
             return NoContent();
         }
         [HttpDelete("{id}")]
         public IActionResult DeleteFromSheet(int id)
         {
             var user = GetCurrentUserProfile();
-            var existingFeatSheet = _repo.GetById(id);
-            if (existingFeatSheet == null) { return BadRequest(); }
-            var existingSheet = _sheetRepo.GetSheetById(existingFeatSheet.SheetId);
+            var existingSpellSheet = _repo.GetById(id);
+            if (existingSpellSheet == null) { return BadRequest(); }
+            var existingSheet = _sheetRepo.GetSheetById(existingSpellSheet.SheetId);
             if (user.Id != existingSheet.UserProfileId) { return BadRequest(); }
-            _repo.Delete(existingFeatSheet);
+            _repo.Delete(existingSpellSheet);
             return NoContent();
         }
         private UserProfile GetCurrentUserProfile()
@@ -53,6 +53,7 @@ namespace PathfindersCompendium.Controllers
             var firebaseUserId = User.FindFirst(ClaimTypes.NameIdentifier).Value;
             return _userRepo.GetByFirebaseUserId(firebaseUserId);
         }
+
 
     }
 }

@@ -22,5 +22,10 @@ namespace PathfindersCompendium.Repositories
         {
             return _context.Spell.Where(s => s.Id == id).FirstOrDefault();
         }
+        public void Add(SpellSheet spellSheet)
+        {
+            _context.Add(spellSheet);
+            _context.SaveChanges();
+        }
     }
 }

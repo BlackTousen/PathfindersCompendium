@@ -93,7 +93,11 @@ namespace PathfindersCompendium.Repositories
         }
         public void Delete(Sheet sheet)
         {
-            _context.Sheet.Remove(sheet);
+            var feats = _context.FeatSheet.Where(fs => fs.SheetId == sheet.Id).ToList();
+            var spells = _context.SpellSheet.Where(ss => ss.SheetId == sheet.Id).ToList();
+            _context.RemoveRange(feats);
+            _context.RemoveRange(spells);
+            _context.Remove(sheet);
             _context.SaveChanges();
         }
     }

@@ -48,57 +48,15 @@ const Skills = ({ skill, handleChange, newSheet }) => {
     return string[0].toLowerCase() + string.slice(1);
   };
 
-  // const UpdateTemp = (skill = 0, e) => {
-  //   let dump = tempMods;
-  //   let value = parseInt(e.target.value);
-  //   if (stat === "Strength") {
-  //     if (isNaN(value)) {
-  //       dump.str = 0;
-  //     } else {
-  //       dump.str = parseInt(value);
-  //     }
-  //   }
-  //   if (stat === "Dexterity") {
-  //     dump.dex = value;
-  //     if (isNaN(value)) {
-  //       dump.dex = 0;
-  //     }
-  //   }
-  //   if (stat === "Constitution") {
-  //     dump.con = value;
-  //     if (isNaN(value)) {
-  //       dump.con = 0;
-  //     }
-  //   }
-  //   if (stat === "Wisdom") {
-  //     dump.wis = value;
-  //     if (isNaN(value)) {
-  //       dump.wis = 0;
-  //     }
-  //   }
-  //   if (stat === "Intelligence") {
-  //     dump.int = value;
-  //     if (isNaN(value)) {
-  //       dump.int = 0;
-  //     }
-  //   }
-  //   if (stat === "Charisma") {
-  //     dump.cha = value;
-  //     if (isNaN(value)) {
-  //       dump.cha = 0;
-  //     }
-  //   }
-  //   setTempMods(dump);
-  // };
-  const skillMath = (skill, temp = 0) => {
-    let result = newSheet[getName(skill)]
-      ? parseInt(newSheet[getName(skill)])
+  const skillMath = (skill1, temp = 0) => {
+    let result = newSheet[getName(skill1)]
+      ? parseInt(newSheet[getName(skill1)])
       : 0;
-    if (["Climb", "Swim"].includes(skill)) {
+    if (["Climb", "Swim"].includes(skill1)) {
       result += parseInt(newSheet.strMod);
       return result;
     }
-    if (["Profession", "Survival"].includes(skill)) {
+    if (["Profession", "Survival", "Perception", "Heal"].includes(skill1)) {
       result += parseInt(newSheet.wisMod);
       return result;
     }
@@ -110,7 +68,8 @@ const Skills = ({ skill, handleChange, newSheet }) => {
         "Handle Animal",
         "Bluff",
         "Disguise",
-      ].includes(skill)
+        "Diplomacy",
+      ].includes(skill1)
     ) {
       result += parseInt(newSheet.chaMod);
       return result;
@@ -128,8 +87,10 @@ const Skills = ({ skill, handleChange, newSheet }) => {
         "Knowledge(Nature)",
         "Knowledge(Planes)",
         "Knowledge(Religion)",
+        "Knowledge(Nobility)",
         "Spellcraft",
-      ].includes(skill)
+        "Linguistics",
+      ].includes(skill1)
     ) {
       result += parseInt(newSheet.intMod);
       return result;
@@ -143,9 +104,10 @@ const Skills = ({ skill, handleChange, newSheet }) => {
         "Ride",
         "Sleight Of Hand",
         "Stealth",
-      ].includes(skill)
+      ].includes(skill1)
     ) {
       result += parseInt(newSheet.dexMod);
+
       return result;
     }
     return result;
@@ -172,10 +134,7 @@ const Skills = ({ skill, handleChange, newSheet }) => {
             />
           </Col>
           <Col size="sm" sm={1}>
-            <Input
-              readOnly
-              value={skillMath(skill, parseInt(tempMods[getName(skill)]))}
-            />
+            <Input readOnly value={skillMath(skill)} />
           </Col>
         </Row>
       </Col>

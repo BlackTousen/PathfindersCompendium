@@ -4,6 +4,15 @@ import { InformationDataContext } from "../providers/InformationDataProvider";
 
 const Defense = ({ handleChange, newSheet }) => {
   const { setToggle } = useContext(InformationDataContext);
+  const CalcAC = (num) => {
+    const stat = isNaN(num) ? 0 : parseInt(num);
+    return 10 + stat;
+  };
+  const CalcSave = (save, mod) => {
+    let save1 = isNaN(save) ? 0 : parseInt(save);
+    let mod1 = isNaN(mod) ? 0 : parseInt(mod);
+    return mod1 + save1;
+  };
   return (
     <>
       <Col sm={{ offset: 2 }}>
@@ -12,18 +21,11 @@ const Defense = ({ handleChange, newSheet }) => {
             AC
           </Label>
           <Col size="sm" sm={1}>
-            <Input
-              readOnly
-              value={
-                parseInt(newSheet.dexMod) + isNaN(parseInt(newSheet.ac))
-                  ? 0 + 10
-                  : parseInt(newSheet.ac) + 10
-              }
-            />
+            <Input readOnly value={CalcAC(parseInt(newSheet.ac))} />
           </Col>
           <Col size="sm" sm={1}>
             <Input
-              type="number"
+              // type="number"
               defaultValue={0}
               name="ac"
               onChange={(e) => handleChange(e)}
@@ -36,7 +38,7 @@ const Defense = ({ handleChange, newSheet }) => {
             <Input
               readOnly
               name="touchAC"
-              value={10 + parseInt(newSheet.dexMod)}
+              value={CalcAC(parseInt(newSheet.dexMod))}
             />
           </Col>
           <Label size="sm" md={2} for="flatFootAC">
@@ -46,59 +48,81 @@ const Defense = ({ handleChange, newSheet }) => {
             <Input
               readOnly
               name="flatFootAC"
-              value={
-                10 + isNaN(parseInt(newSheet.ac)) ? 0 : parseInt(newSheet.ac)
-              }
+              value={CalcAC(parseInt(newSheet.ac))}
             />
           </Col>
         </Row>
         <Row>
-          <Label size="sm" md={2} for="fortSave">
+          <Label
+            size="sm"
+            md={2}
+            for="fortSave"
+            onClick={(e) => setToggle("SavingThrows")}
+          >
             Fortitude
           </Label>
-          <Col size="sm" sm={1} name="fortSave">
-            <Input defaultValue={newSheet.fortSave} />
+          <Col size="sm" sm={1}>
+            <Input
+              name="fortSave"
+              defaultValue={newSheet.fortSave}
+              onChange={(e) => handleChange(e)}
+            />
           </Col>
           <Col size="sm" sm={1}>
             <Input
               readOnly
-              defaultValue={
-                isNaN(parseInt(newSheet.fortSave))
-                  ? 0 + parseInt(newSheet.conMod)
-                  : parseInt(newSheet.fortSave) + parseInt(newSheet.conMod)
-              }
+              value={CalcSave(
+                parseInt(newSheet.fortSave),
+                parseInt(newSheet.conMod)
+              )}
             />
           </Col>
-          <Label size="sm" md={2} for="refSave">
+          <Label
+            size="sm"
+            md={2}
+            for="refSave"
+            onClick={(e) => setToggle("SavingThrows")}
+          >
             Reflex
           </Label>
           <Col size="sm" sm={1}>
-            <Input name="refSave" defaultValue={newSheet.refSave} />
-          </Col>
-          <Col size="sm" sm={1}>
             <Input
-              readOnly
-              defaultValue={
-                isNaN(parseInt(newSheet.refSave))
-                  ? 0 + parseInt(newSheet.dexMod)
-                  : parseInt(newSheet.refSave) + parseInt(newSheet.dexMod)
-              }
+              name="refSave"
+              defaultValue={newSheet.refSave}
+              onChange={(e) => handleChange(e)}
             />
           </Col>
-          <Label size="sm" md={2} for="willSave">
+          <Col size="sm" sm={1}>
+            <Input
+              readOnly
+              value={CalcSave(
+                parseInt(newSheet.refSave),
+                parseInt(newSheet.dexMod)
+              )}
+            />
+          </Col>
+          <Label
+            size="sm"
+            md={2}
+            for="willSave"
+            onClick={(e) => setToggle("SavingThrows")}
+          >
             Will
           </Label>
-          <Col size="sm" sm={1} name="willSave">
-            <Input name="flatFootAC" defaultValue={newSheet.willSave} />
+          <Col size="sm" sm={1}>
+            <Input
+              defaultValue={newSheet.willSave}
+              name="willSave"
+              onChange={(e) => handleChange(e)}
+            />
           </Col>
           <Col size="sm" sm={1}>
             <Input
               readOnly
-              defaultValue={
-                isNaN(parseInt(newSheet.willSave))
-                  ? 0 + parseInt(newSheet.wisMod)
-                  : parseInt(newSheet.willSave) + parseInt(newSheet.wisMod)
-              }
+              value={CalcSave(
+                parseInt(newSheet.willSave),
+                parseInt(newSheet.wisMod)
+              )}
             />
           </Col>
         </Row>

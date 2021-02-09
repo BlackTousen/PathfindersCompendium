@@ -1,4 +1,264 @@
 const Information = {
+  fly: (
+    <>
+      <p>
+        <b>Fly (Dex; Armor Check Penalty)</b>
+      </p>
+      <p>
+        You are skilled at flying, either through the use of wings or magic, and
+        you can perform daring or complex maneuvers while airborne. Note that
+        this skill does not give you the ability to fly.
+      </p>
+      <p>
+        <b>Special Requirement</b>
+      </p>
+      <p>
+        You cannot take this skill without a natural means of flight or gliding.
+        Creatures can also take ranks in Fly if they possess a reliable means of
+        flying every day (either through a spell or other magical manner, such
+        as a druid’s wild shape ability).
+      </p>
+    </>
+  ),
+  escapeArtist: (
+    <>
+      <p>
+        <b>Escape Artist (Dex; Armor Check Penalty)</b>
+      </p>
+      <p>Your training allows you to slip bonds and escape from grapples.</p>
+      <p>
+        <u>
+          <b>Common Uses</b>
+        </u>
+      </p>
+      <p>
+        <b>Escape Ropes</b>
+      </p>
+      <p>
+        The DC of your Escape Artist check is equal to the binder’s combat
+        maneuver bonus +20.
+      </p>
+      <p>
+        <b>Escape Manacles</b>
+      </p>
+      <p>
+        The DC to escape normal manacles is 30. The DC to escape masterwork
+        manacles is 35.
+      </p>
+    </>
+  ),
+  disguise: (
+    <>
+      <p>
+        <b>Disguise (Cha)</b>
+      </p>
+      <p>You are skilled at changing your appearance.</p>
+      <p>
+        <b>Check</b>
+      </p>
+      <p>
+        Your Disguise check result determines how good the disguise is, and it
+        is opposed by others’ Perception check results. If you don’t draw any
+        attention to yourself, others do not get to make Perception checks. If
+        you come to the attention of people who are suspicious (such as a guard
+        who is watching commoners walking through a city gate), it can be
+        assumed that such observers are taking 10 on their Perception checks.
+      </p>
+      <p>
+        You get only one Disguise check per use of the skill, even if several
+        people are making Perception checks against it. The Disguise check is
+        made secretly, so that you can’t be sure how good the result is.
+      </p>
+      <p>
+        The effectiveness of your disguise depends in part on how much you’re
+        attempting to change your appearance.
+      </p>
+    </>
+  ),
+  disableDevice: (
+    <>
+      <p>
+        <b>Disable Device (Dex; Armor Check Penalty; Trained Only)</b>
+      </p>
+      <p>
+        You are skilled at disarming traps and opening locks. In addition, this
+        skill lets you sabotage simple mechanical devices, such as catapults,
+        wagon wheels, and doors.
+      </p>
+      <p>
+        <u>
+          <b>Common Uses</b>
+        </u>
+      </p>
+      <p>
+        <b>Disarm Trap or Device</b>
+      </p>
+      <p>
+        When disarming a trap or other device, the Disable Device check is made
+        secretly, so that you don’t necessarily know whether you’ve succeeded.
+      </p>
+      <p>
+        <b>Open A Lock</b>
+      </p>
+      <p>
+        The DC to open a lock depends on the lock’s quality: <b>simple</b> (DC
+        20),
+        <b>average</b> (DC 25), <b>good</b> (DC 30), or <b>superior</b> (DC 40).
+      </p>
+    </>
+  ),
+  diplomacy: (
+    <>
+      <p>
+        <b>Diplomacy (Cha)</b>
+      </p>
+      <p>
+        You can use this skill to persuade others to agree with your arguments,
+        to resolve differences, and to gather valuable information or rumors
+        from people. This skill is also used to negotiate conflicts by using the
+        proper etiquette and manners suitable to the problem.
+      </p>
+      <p>
+        <u>
+          <b>Common Uses</b>
+        </u>
+      </p>
+      <p>
+        <b>Gather Information</b>
+      </p>
+      <p>
+        You can use Diplomacy to gather information about a specific topic or
+        individual. To do this, you must spend at least 1d4 hours canvassing
+        people at local taverns, markets, and gathering places. The DC of this
+        check depends on the obscurity of the information sought, but for most
+        commonly known facts or rumors it is 10. For obscure or secret
+        knowledge, the DC might increase to 20 or higher. The GM might rule that
+        some topics are simply unknown to common folk.
+      </p>
+    </>
+  ),
+  craft: (
+    <>
+      <p>
+        <b>Craft (Int)</b>
+      </p>
+      <p>
+        You are skilled in the creation of a specific group of items, such as
+        armor or weapons. Like Knowledge, Perform, and Profession, Craft is
+        actually a number of separate skills. You could have several Craft
+        skills, each with its own ranks. The most common Craft skills are
+        alchemy, armor, baskets, books, bows, calligraphy, carpentry, cloth,
+        clothing, glass, jewelry, leather, locks, paintings, pottery,
+        sculptures, ships, shoes, stonemasonry, traps, and weapons.
+      </p>
+      <p>
+        A Craft skill is specifically focused on creating something. If nothing
+        is created by the endeavor, it probably falls under the heading of a
+        Profession skill.
+      </p>
+      <p>
+        <u>
+          <b>Common Uses</b>
+        </u>
+      </p>
+      <p>
+        <b>Practice Trade</b>
+      </p>
+      <p>
+        You can practice your trade and make a decent living, earning half your
+        check result in gold pieces per week of dedicated work. You know how to
+        use the tools of your trade, how to perform the craft’s daily tasks, how
+        to supervise untrained helpers, and how to handle common problems.
+        (Untrained laborers and assistants earn an average of 1 silver piece per
+        day.)
+      </p>
+      <p>
+        <b>Make Something</b>
+      </p>
+      <p>
+        The basic function of the Craft skill, however, is to allow you to make
+        an item of the appropriate type. The DC depends on the complexity of the
+        item to be created. The DC, your check result, and the price of the item
+        determine how long it takes to make a particular item. The item’s
+        finished price also determines the cost of raw materials.
+      </p>
+    </>
+  ),
+  SavingThrows: (
+    <>
+      <p>
+        <b>Saving Throws</b>
+      </p>
+      <p>
+        Generally, when you are subject to an unusual or magical attack, you get
+        a Saving Throw to avoid or reduce the effect. Like an attack roll, a
+        Saving Throw is a d20 roll plus a bonus based on your class and level
+        (see Classes), and an associated Ability Score. Your Saving Throw
+        modifier is:
+        <p>
+          <b>Base save bonus + ability modifier</b>
+        </p>
+      </p>
+      <p>
+        <i>Fortitude:</i> These saves measure your ability to stand up to
+        physical punishment or attacks against your vitality and health. Apply
+        your Constitution modifier to your Fortitude saving throws.
+      </p>
+      <p>
+        <i>Reflex:</i> These saves test your ability to dodge area attacks and
+        unexpected situations. Apply your Dexterity modifier to your Reflex
+        saving throws.
+      </p>
+      <p>
+        <i>Will:</i> These saves reflect your Resistance to mental influence as
+        well as many magical effects. Apply your Wisdom modifier to your Will
+        saving throws.
+      </p>
+      <p>
+        <b>Automatic Failures and Successes:</b> A natural 1 (the d20 comes up
+        1) on a Saving Throw is always a failure (and may cause Damage to
+        exposed items; see Items Surviving after a Saving Throw). A natural 20
+        (the d20 comes up 20) is always a success.
+      </p>
+    </>
+  ),
+  Bard: (
+    <>
+      <p>
+        <b>Bard</b>
+      </p>
+    </>
+  ),
+  Barbarian: (
+    <>
+      <p>
+        <b>Barbarian</b>
+      </p>
+      <p>
+        For some, there is only rage. In the ways of their people, in the fury
+        of their passion, in the howl of battle, conflict is all these brutal
+        souls know. Savages, hired muscle, masters of vicious martial
+        techniques, they are not soldiers or professional warriors—they are the
+        battle possessed, creatures of slaughter and spirits of war. Known as
+        barbarians, these warmongers know little of training, preparation, or
+        the rules of warfare; for them, only the moment exists, with the foes
+        that stand before them and the knowledge that the next moment might hold
+        their death. They possess a sixth sense in regard to danger and the
+        endurance to weather all that might entail. These brutal warriors might
+        rise from all walks of life, both civilized and savage, though whole
+        societies embracing such philosophies roam the wild places of the world.
+        Within barbarians storms the primal spirit of battle, and woe to those
+        who face their rage.
+      </p>
+      <p>
+        <b>Role:</b> Barbarians excel in combat, possessing the martial prowess
+        and fortitude to take on foes seemingly far superior to themselves. With
+        rage granting them boldness and daring beyond that of most other
+        warriors, barbarians charge furiously into battle and ruin all who would
+        stand in their way.
+      </p>
+    </>
+  ),
   climb: (
     <>
       <p>
@@ -91,6 +351,34 @@ const Information = {
     <>
       <p>
         <b>Charisma (Cha)</b>
+      </p>
+      <p>
+        Charisma measures a character's personality, personal magnetism, ability
+        to lead, and appearance. It is the most important ability for paladins,
+        sorcerers, and bards. It is also important for clerics, since it affects
+        their ability to channel energy. For Undead creatures, Charisma is a
+        measure of their unnatural “lifeforce.” Every Creature has a Charisma
+        score. A character with a Charisma score of 0 is not able to exert
+        himself in any way and is unconscious.
+      </p>
+      <p>
+        You apply your character's Charisma modifier to:
+        <ul>
+          <li>
+            Bluff, Diplomacy, Disguise, Handle Animal, Intimidate, Perform, and
+            Use Magic Device checks.
+          </li>
+          <li>Checks that represent attempts to influence others.</li>
+          <li>
+            Channel energy DCs for clerics and paladins attempting to harm
+            Undead foes.
+          </li>
+        </ul>
+      </p>
+      <p>
+        Bards, paladins, and sorcerers gain a number of bonus Spells based on
+        their Charisma scores. The minimum Charisma score needed to cast a bard,
+        Paladin, or Sorcerer spell is 10 + the spell's level.
       </p>
     </>
   ),

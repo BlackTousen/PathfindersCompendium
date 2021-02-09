@@ -5,7 +5,6 @@ import { InformationDataContext } from "../providers/InformationDataProvider";
 const Offense = ({ handleChange, newSheet }) => {
   const { setToggle } = useContext(InformationDataContext);
   const CalcBAB = (num) => {
-    console.log(num);
     if (num < 6) {
       return num;
     }

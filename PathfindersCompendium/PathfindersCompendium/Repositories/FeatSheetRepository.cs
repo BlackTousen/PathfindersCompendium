@@ -15,13 +15,31 @@ namespace PathfindersCompendium.Repositories
         {
             _context = context;
         }
-        public List<FeatSheet> GetById(int id)
+        public List<FeatSheet> GetBySheetId(int id)
         {
             return _context.FeatSheet
-                //.Include(fs => fs.Feat)
+                .Include(fs => fs.Feat)
                 .Where(fs => fs.SheetId == id)
                 .ToList();
 
+        }
+        public FeatSheet GetById(int id)
+        {
+            return _context.FeatSheet
+                .Include(fs => fs.Feat)
+                .Where(fs => fs.Id == id)
+                .FirstOrDefault();
+
+        }
+        public void Add(FeatSheet featSheet)
+        {
+            _context.Add(featSheet);
+            _context.SaveChanges();
+        }
+        public void Delete(FeatSheet featSheet)
+        {
+            _context.Remove(featSheet);
+            _context.SaveChanges();
         }
     }
 }

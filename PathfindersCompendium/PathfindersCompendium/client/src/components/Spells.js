@@ -6,6 +6,8 @@ import {
   Label,
   ListGroup,
   ListGroupItem,
+  ListGroupItemHeading,
+  ListGroupItemText,
   ModalFooter,
   Row,
 } from "reactstrap";
@@ -22,7 +24,9 @@ const Spells = ({ newSheet, handleChange }) => {
 
   useEffect(() => {
     GetSpells();
+    GetSheetSpells();
   }, []);
+  useEffect(() => {}, [userSpells]);
   const GetSheetSpells = (_) => {
     return getToken().then((token) =>
       fetch(`/api/spellsheet/${newSheet.id}`)
@@ -54,6 +58,20 @@ const Spells = ({ newSheet, handleChange }) => {
       })
     );
   };
+  const RemoveFromSheet = (userSpell) => {
+    if (userSpell.id === 0) {
+      return;
+    }
+    return getToken().then((token) =>
+      fetch(`/api/spellsheet/${userSpell.id}`, {
+        method: "DELETE",
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      })
+    );
+  };
+
   while (spells[0] === undefined) {
     return null;
   }
@@ -107,14 +125,33 @@ const Spells = ({ newSheet, handleChange }) => {
           );
         })}
       </Input>
-      <ListGroup>
-        {userSpells.map((uf) => (
-          <ListGroupItem>{uf.name}</ListGroupItem>
-        ))}
-      </ListGroup>
-      <Button color="primary" onClick={(e) => AddToSheet(spellToAdd)}>
+      <br></br>
+      <Button
+        color="success"
+        onClick={(e) => AddToSheet(spellToAdd).then(GetSheetSpells)}
+      >
         Add To Sheet
-      </Button>
+      </Button>{" "}
+      <ListGroup>
+        <Row>
+          {userSpells.map((uf) => (
+            <>
+              <Col md={2}>
+                <ListGroupItem
+                  onClick={(e) => setToggle(getName(uf.spell.name))}
+                >
+                  {uf.spell.name}
+                  <Button
+                    onClick={(e) => RemoveFromSheet(uf).then(GetSheetSpells)}
+                  >
+                    Remove
+                  </Button>
+                </ListGroupItem>
+              </Col>
+            </>
+          ))}
+        </Row>
+      </ListGroup>
     </>
   );
 };

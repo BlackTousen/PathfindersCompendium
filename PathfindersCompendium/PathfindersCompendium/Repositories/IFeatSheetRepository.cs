@@ -5,6 +5,9 @@ namespace PathfindersCompendium.Repositories
 {
     public interface IFeatSheetRepository
     {
-        List<FeatSheet> GetById(int id);
+        void Add(FeatSheet featSheet);
+        void Delete(FeatSheet featSheet);
+        FeatSheet GetById(int id);
+        List<FeatSheet> GetBySheetId(int id);
     }
 }
