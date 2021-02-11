@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -8,10 +9,14 @@ namespace PathfindersCompendium.Models
 {
     public class Sheet
     {
+        public List<FeatSheet> FeatSheets { get; set; }
+        public List<SpellSheet> SpellSheets { get; set; }
         public int Id { get; set; }
         public int UserProfileId { get; set; }
         public UserProfile UserProfile { get; set; }
+        [NotMapped]
         public List<Feat> Feat { get; set; }
+        [NotMapped]
         public List<Spell> Spell { get; set; }
         public string Name { get; set; }
         public string Alignment { get; set; }

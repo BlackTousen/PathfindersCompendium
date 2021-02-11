@@ -7,7 +7,6 @@ import { UserProfileContext } from "../providers/UserProfileProvider";
 import "./Login.css";
 
 const Login = () => {
-  console.log("Login page reached!");
   const { login, logout } = useContext(UserProfileContext);
   const [loading, setLoading] = useState(false);
   const [email, setEmail] = useState("");

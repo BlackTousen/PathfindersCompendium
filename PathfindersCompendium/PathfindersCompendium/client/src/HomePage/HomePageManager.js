@@ -1,13 +1,13 @@
 import React, { useContext, useEffect, useState } from "react";
 import { TabList, Tabs, Tab, TabPanel } from "react-tabs";
+import "react-tabs/style/react-tabs.css";
 import { Container, Row, Col, Button } from "reactstrap";
 import { UserProfileContext } from "../providers/UserProfileProvider";
-import "react-tabs/style/react-tabs.css";
 import CharacterSheet from "../components/CharacterSheet";
 
 const HomePageManager = () => {
   const { getCurrentUser, getToken } = useContext(UserProfileContext);
-  const [sheets, setSheets] = useState();
+  const [sheets, setSheets] = useState([]);
   const [classes, setClasses] = useState([]);
   const [sheetState, setSheetState] = useState(false);
   const [sheetToEdit, setEditing] = useState({});
@@ -60,14 +60,13 @@ const HomePageManager = () => {
   };
 
   const ListSheets = () => {
-    console.log(sheets);
     if (sheets === undefined) {
       setSheetState(false);
-      return;
+      // return;
     }
     if (sheets[0] === undefined) {
       setSheetState(false);
-      return;
+      // return;
     }
     setEditing(sheets[0]);
     setSheetState(true);
@@ -108,12 +107,15 @@ const HomePageManager = () => {
                   );
                 })}
                 {sheets[3] === undefined ? (
-                  <Button
-                    color="primary"
-                    onClick={(e) => AddCharacter().then(getSheets)}
-                  >
-                    Add Character
-                  </Button>
+                  <>
+                    <br></br>
+                    <Button
+                      color="primary"
+                      onClick={(e) => AddCharacter().then(getSheets)}
+                    >
+                      Add Character
+                    </Button>
+                  </>
                 ) : null}
               </Tabs>
             </Col>
@@ -121,8 +123,8 @@ const HomePageManager = () => {
         </Container>
       ) : (
         <>
-          {ListSheets()}
           <h1>You currently have no character sheets!</h1>
+          {ListSheets()}
           <Button
             color="primary"
             onClick={(e) => AddCharacter().then(getSheets)}

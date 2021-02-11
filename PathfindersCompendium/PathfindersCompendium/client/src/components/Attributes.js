@@ -1,7 +1,9 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { Col, Input, Label, Row } from "reactstrap";
+import { InformationDataContext } from "../providers/InformationDataProvider";
 
 const Attributes = ({ attribute, handleChange, newSheet }) => {
+  const { setToggle } = useContext(InformationDataContext);
   const [tempMods, setTempMods] = useState({
     str: 0,
     dex: 0,
@@ -84,11 +86,16 @@ const Attributes = ({ attribute, handleChange, newSheet }) => {
   return (
     <>
       <Col md={{ offset: 2 }}>
-        <Row>
-          <Label size="sm" md={2} for={attribute}>
+        <Row style={{ textAlign: "left" }}>
+          <Label
+            size="sm"
+            md={2}
+            for={attribute}
+            onClick={(e) => setToggle(getName(attribute))}
+          >
             {attribute}
           </Label>
-          <Col size="sm" sm={1}>
+          <Col size="sm" sm={2}>
             <Input
               id={attribute}
               name={getName(attribute)}
@@ -96,7 +103,7 @@ const Attributes = ({ attribute, handleChange, newSheet }) => {
               onChange={(e) => handleChange(e)}
             />
           </Col>
-          <Col size="sm" sm={1}>
+          <Col size="sm" sm={2}>
             <Input
               readOnly
               value={Math.floor(
@@ -109,7 +116,7 @@ const Attributes = ({ attribute, handleChange, newSheet }) => {
               )}
             />
           </Col>
-          <Col size="sm" sm={1}>
+          <Col size="sm" sm={2}>
             <Input
               id={attribute}
               name={getName(attribute) + "trash"}
