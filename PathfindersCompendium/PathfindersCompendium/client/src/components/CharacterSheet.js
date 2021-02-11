@@ -19,6 +19,7 @@ import Feats from "./Feats";
 import Offense from "./Offense";
 import Skills from "./Skills";
 import Spells from "./Spells";
+import { toast } from "react-toastify";
 
 const CharacterSheet = ({
   sheet,
@@ -31,26 +32,34 @@ const CharacterSheet = ({
   const { setToggle } = useContext(InformationDataContext);
 
   const SaveCharacter = (sheet) => {
-    return getToken().then((token) => {
-      return fetch(`/api/CharacterSheet/${sheet.id}`, {
-        method: "PUT",
-        headers: {
-          "Content-Type": "application/json",
-          Authorization: `Bearer ${token}`,
-        },
-        body: JSON.stringify(sheet),
+    return getToken()
+      .then((token) => {
+        return fetch(`/api/CharacterSheet/${sheet.id}`, {
+          method: "PUT",
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: `Bearer ${token}`,
+          },
+          body: JSON.stringify(sheet),
+        });
+      })
+      .then((_) => {
+        toast.info(`${sheetToEdit.name} has been saved.`);
       });
-    });
   };
   const DeleteCharacter = (sheet) => {
-    return getToken().then((token) => {
-      return fetch(`/api/CharacterSheet/${sheet.id}`, {
-        method: "DELETE",
-        headers: {
-          Authorization: `Bearer ${token}`,
-        },
+    return getToken()
+      .then((token) => {
+        return fetch(`/api/CharacterSheet/${sheet.id}`, {
+          method: "DELETE",
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        });
+      })
+      .then((_) => {
+        toast.info(`${sheetToEdit.name} has been deleted.`);
       });
-    });
   };
   const handleChange = (e) => {
     const newSheet = { ...sheetToEdit };
