@@ -8,7 +8,9 @@ namespace PathfindersCompendium.Models
     public class FeatSheet
     {
         public int Id { get; set; }
+        public Sheet Sheet { get; set; }
         public int SheetId { get; set; }
         public int FeatId { get; set; }
+        public Feat Feat { get; set; }
     }
 }

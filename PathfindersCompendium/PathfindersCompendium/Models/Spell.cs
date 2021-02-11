@@ -7,6 +7,7 @@ namespace PathfindersCompendium.Models
 {
     public class Spell
     {
+        public List<SpellSheet> SpellSheets { get; set; }
         public int Id { get; set; }
         public string Name { get; set; }
         public string School { get; set; }
@@ -28,9 +29,9 @@ namespace PathfindersCompendium.Models
         public string Description { get; set; }
         public string Source { get; set; }
         public string Full_Text { get; set; }
-        public int Verbal { get; set; }
-        public int Somatic { get; set; }
-        public int Material { get; set; }
+        public string Verbal { get; set; }
+        public string Somatic { get; set; }
+        public string Material { get; set; }
         public int Focus { get; set; }
         public int Divine_Focus { get; set; }
         public string Sor { get; set; }
@@ -50,7 +51,7 @@ namespace PathfindersCompendium.Models
         public string Magus { get; set; }
         public string Adept { get; set; }
         public string Deity { get; set; }
-        public int SLA_Level { get; set; }
+        public string SLA_Level { get; set; }
         public string Domain { get; set; }
         public string Short_Description { get; set; }
         public int Acid { get; set; }
@@ -69,7 +70,7 @@ namespace PathfindersCompendium.Models
         public int Fire { get; set; }
         public int Force { get; set; }
         public int Good { get; set; }
-        public int Language_Dependant { get; set; }
+        public int Language_Dependent { get; set; }
         public int Lawful { get; set; }
         public int Light { get; set; }
         public int Mind_Affecting { get; set; }
@@ -79,7 +80,7 @@ namespace PathfindersCompendium.Models
         public int Sonic { get; set; }
         public int Water { get; set; }
         public string Linktext { get; set; }
-        public int Material_Costs { get; set; }
+        public string Material_Costs { get; set; }
         public string Bloodline { get; set; }
         public string Mythic_Text { get; set; }
         public string Augmented { get; set; }

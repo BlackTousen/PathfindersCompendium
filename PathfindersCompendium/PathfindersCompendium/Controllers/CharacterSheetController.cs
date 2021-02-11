@@ -107,6 +107,7 @@ namespace PathfindersCompendium.Controllers
             existingSheet.CMD = sheet.CMD;
             existingSheet.Melee = sheet.Melee;
             existingSheet.Ranged = sheet.Ranged;
+            if (sheet.LandSpeed == 0) { sheet.LandSpeed = 30; }
             existingSheet.LandSpeed = sheet.LandSpeed;
             existingSheet.SwimSpeed = sheet.SwimSpeed;
             existingSheet.ClimbSpeed = sheet.ClimbSpeed;
