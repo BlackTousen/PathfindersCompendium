@@ -134,10 +134,10 @@ const Feats = ({ newSheet, handleChange }) => {
               <span>
                 <ListGroupItemHeading
                   onClick={(e) =>
-                    setToggle(getName(`${uf.feat.name} - ${uf.feat.type}`))
+                    setToggle(getName(`${uf.feat.name} (${uf.feat.type})`))
                   }
                 >
-                  {uf.feat.name}{" "}
+                  {uf.feat.name} ({uf.feat.type}){" "}
                   <Button
                     onClick={(e) => RemoveFromSheet(uf).then(GetSheetFeats)}
                   >

@@ -86,7 +86,7 @@ const Attributes = ({ attribute, handleChange, newSheet }) => {
   return (
     <>
       <Col md={{ offset: 2 }}>
-        <Row>
+        <Row style={{ textAlign: "left" }}>
           <Label
             size="sm"
             md={2}
@@ -95,7 +95,7 @@ const Attributes = ({ attribute, handleChange, newSheet }) => {
           >
             {attribute}
           </Label>
-          <Col size="sm" sm={1}>
+          <Col size="sm" sm={2}>
             <Input
               id={attribute}
               name={getName(attribute)}
@@ -103,7 +103,7 @@ const Attributes = ({ attribute, handleChange, newSheet }) => {
               onChange={(e) => handleChange(e)}
             />
           </Col>
-          <Col size="sm" sm={1}>
+          <Col size="sm" sm={2}>
             <Input
               readOnly
               value={Math.floor(
@@ -116,7 +116,7 @@ const Attributes = ({ attribute, handleChange, newSheet }) => {
               )}
             />
           </Col>
-          <Col size="sm" sm={1}>
+          <Col size="sm" sm={2}>
             <Input
               id={attribute}
               name={getName(attribute) + "trash"}

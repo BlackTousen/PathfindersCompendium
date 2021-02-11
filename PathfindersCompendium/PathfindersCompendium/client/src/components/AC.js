@@ -1,8 +1,360 @@
+import { ListGroupItemHeading } from "reactstrap";
+import { InformationDataContext } from "../providers/InformationDataProvider";
+
 const Information = {
+  AbilityScores: (
+    <>
+      <p>
+        <ListGroupItemHeading>
+          <b>Ability Scores</b>
+        </ListGroupItemHeading>
+      </p>
+      <p>
+        Each character has six ability scores that represent his character’s
+        most basic attributes. They are his raw talent and prowess. While a
+        character rarely rolls a check using just an ability score, these
+        scores, and the modifiers they create, affect nearly every aspect of a
+        character’s skills and abilities. Each ability score generally ranges
+        from 3 to 18, although racial bonuses and penalties can alter this; an
+        average ability score is 10.{" "}
+      </p>
+    </>
+  ),
+  Skills: (
+    <>
+      <p>
+        <ListGroupItemHeading>
+          <b>Skills</b>
+        </ListGroupItemHeading>
+      </p>
+      <p>
+        Skills represent some of the most basic and yet most fundamental
+        abilities your character possesses. As your character advances in level,
+        he can gain new skills and improve his existing skills dramatically.
+        This section describes each skill, including common uses and typical
+        modifiers. Characters can sometimes use skills for purposes other than
+        those noted here, at the GM’s discretion.
+      </p>
+    </>
+  ),
+  Alignment: (
+    <>
+      <p>
+        <ListGroupItemHeading>
+          <b>Alignment</b>
+        </ListGroupItemHeading>
+      </p>
+      <p>
+        This game assumes good and evil are definitive things. Evidence for this
+        outlook can be found in the indicated good or evil monster subtypes,
+        spells that detect good and evil, and spells that have the good or evil
+        descriptor. Characters using spells with the evil descriptor should
+        consider themselves to be committing minor acts of evil, though using
+        spells to create undead is an even more grievous act of evil that
+        requires atonement. Creatures with an evil subtype (generally outsiders)
+        are creatures that are fundamentally evil: devils, daemons, and demons,
+        for instance. Their redemption is rare, if it is even possible. They are
+        evil to their very core, and commit evil acts perpetually and
+        persistently. Mortals with an evil alignment, however, are different
+        from these beings. In fact, having an evil alignment alone does not make
+        one a super-villain or even require one to be thwarted or killed. The
+        extent of a character’s evil alignment might be a lesser evil, like
+        selfishness, greed, or extreme vanity. Having these qualities might not
+        even cause the character to detect as evil when subjected to detect
+        evil, as creatures possessing 4 or fewer Hit Dice do not register to the
+        spell (with the exception of clerics or other characters that radiate an
+        aura).
+      </p>
+      <p>
+        A creature’s general moral and personal attitudes are represented by its
+        alignment: lawful good, neutral good, chaotic good, lawful neutral,
+        neutral, chaotic neutral, lawful evil, neutral evil, or chaotic evil.
+      </p>
+      <p>
+        Alignment is a tool for developing your character’s identity—it is not a
+        straitjacket for restricting your character. Each alignment represents a
+        broad range of personality types or personal philosophies, so two
+        characters of the same alignment can still be quite different from each
+        other. In addition, few people are completely consistent.
+      </p>
+      <p>
+        All creatures have an alignment and alignment determines the
+        effectiveness of some spells and magic items.
+      </p>
+      <p>
+        Animals and other creatures incapable of moral action are neutral. Even
+        deadly vipers and tigers that eat people are neutral because they lack
+        the capacity for morally right or wrong behavior. Dogs may be obedient
+        and cats free-spirited, but they do not have the moral capacity to be
+        truly lawful or chaotic.
+      </p>
+      <p>
+        <ListGroupItemHeading>
+          <b>Good Versus Evil</b>
+        </ListGroupItemHeading>
+      </p>
+      <p>
+        Good characters and creatures protect innocent life. Evil characters and
+        creatures debase or destroy innocent life, whether for fun or profit.
+      </p>
+      <p>
+        <b>Good</b> Good implies altruism, respect for life, and a concern for
+        the dignity of sentient beings. Good characters make personal sacrifices
+        to help others.
+      </p>
+      <p>
+        <b>Evil</b> Evil implies hurting, oppressing, and killing others. Some
+        evil creatures simply have no compassion for others and kill without
+        qualms if doing so is convenient. Others actively pursue evil, killing
+        for sport or out of duty to some evil deity or master.
+      </p>
+      <p>
+        <b>Neutral</b> People who are neutral with respect to good and evil have
+        compunctions against killing the innocent, but may lack the commitment
+        to make sacrifices to protect or help others.
+      </p>
+      <p>
+        <ListGroupItemHeading>
+          <b>Law Versus Chaos</b>
+        </ListGroupItemHeading>
+      </p>
+      <p>
+        Lawful characters tell the truth, keep their word, respect authority,
+        honor tradition, and judge those who fall short of their duties. Chaotic
+        characters follow their consciences, resent being told what to do, favor
+        new ideas over tradition, and do what they promise if they feel like it.
+      </p>
+      <p>
+        <b>Law</b> Law implies honor, trustworthiness, obedience to authority,
+        and reliability. On the downside, lawfulness can include
+        closed-mindedness, reactionary adherence to tradition,
+        self-righteousness, and a lack of adaptability. Those who consciously
+        promote lawfulness say that only lawful behavior creates a society in
+        which people can depend on each other and make the right decisions in
+        full confidence that others will act as they should.
+      </p>
+      <p>
+        <b>Chaos</b> Chaos implies freedom, adaptability, and flexibility. On
+        the downside, chaos can include recklessness, resentment toward
+        legitimate authority, arbitrary actions, and irresponsibility. Those who
+        promote chaotic behavior say that only unfettered personal freedom
+        allows people to express themselves fully and lets society benefit from
+        the potential that its individuals have within them.
+      </p>
+      <p>
+        <b>Neutral</b> Someone who is neutral with respect to law and chaos has
+        some respect for authority and feels neither a compulsion to obey nor a
+        compulsion to rebel. She is generally honest, but can be tempted into
+        lying or deceiving others.
+      </p>
+    </>
+  ),
+  knowledgeArcana: (
+    <>
+      <p>
+        <ListGroupItemHeading>
+          Knowledge (Int; Trained Only)
+        </ListGroupItemHeading>
+      </p>
+      <p>
+        Contents [show] You are educated in a field of study and can answer both
+        simple and complex questions. Like the Craft, Perform, and Profession
+        skills, Knowledge actually encompasses a number of different
+        specialties.
+      </p>
+      <p>
+        Below are listed typical fields of study.
+        <ul>
+          <li>
+            <b>Arcana</b> (ancient mysteries, magic traditions, arcane symbols,
+            constructs, dragons, magical beasts); Although robots are
+            constructs, Knowledge (arcana) cannot be used to identify robots or
+            their abilities and weaknesses.
+          </li>
+          <li>
+            <b>Dungeoneering</b> (aberrations, caverns, oozes, spelunking)
+          </li>
+          <li>
+            <b>Engineering</b> (buildings, aqueducts, bridges, fortifications);
+            This is the most important skill with regard to technological
+            subjects. Knowledge (engineering) can be used to identify a robot’s
+            abilities and weaknesses. Knowledge (engineering) is also used to
+            identify and understand unknown technological objects in a similar
+            manner to how Spellcraft is used to identify the properties of a
+            magic item. The DC to correctly identify and understand an unknown
+            technological object is equal to the object’s Craft DC. An object
+            with a Craft DC of 15 or less can be automatically identified and
+            understood by someone trained in Knowledge (engineering) who also
+            has the Technologist feat.
+          </li>
+          <li>
+            <b>Geography</b> (lands, terrain, climate, people); Used for
+            astronomy.
+          </li>
+          <li>
+            <b>History</b> (wars, colonies, migrations, founding of cities)
+          </li>
+          <li>
+            <b>Local</b> (legends, personalities, inhabitants, laws, customs,
+            traditions, humanoids)
+          </li>
+          <li>
+            <b>Nature</b> (animals, fey, monstrous humanoids, plants, seasons
+            and cycles, weather, vermin)
+          </li>
+          <li>
+            <b>Nobility</b> (lineages, heraldry, personalities, royalty)
+          </li>
+          <li>
+            <b>Planes</b> (the Inner Planes, the Outer Planes, the Astral Plane,
+            the Ethereal Plane, outsiders, planar magic)
+          </li>
+          <li>
+            <b>Religion</b> (gods and goddesses, mythic history, ecclesiastic
+            tradition, holy symbols, undead)
+          </li>
+        </ul>
+      </p>
+      <p>
+        <ListGroupItemHeading>Common Uses</ListGroupItemHeading>
+      </p>
+      <p>
+        <b>General Knowledge</b>
+      </p>
+      <p>
+        Answering a question within your field of study has a DC of 10 (for
+        really easy questions), 15 (for basic questions), or 20 to 30 (for
+        really tough questions).
+      </p>
+      <p>
+        <b>Monster Lore</b>
+      </p>
+      <p>
+        You can use this skill to identify monsters and their special powers or
+        vulnerabilities.
+      </p>
+    </>
+  ),
+  intimidate: (
+    <>
+      <p>
+        <ListGroupItemHeading>Intimidate (Cha)</ListGroupItemHeading>
+      </p>
+      <p>
+        You can use this skill to frighten your opponents or to get them to act
+        in a way that benefits you. This skill includes verbal threats and
+        displays of prowess.
+      </p>
+      <p>
+        <b>
+          <ListGroupItemHeading>Common Uses</ListGroupItemHeading>
+        </b>
+      </p>
+      <p>
+        <b>Coerce Opponent</b>
+      </p>
+      <p>
+        Sometimes you need to cow someone into submission for more than just a
+        few hours.
+      </p>
+      <p>
+        <b>Action:</b> Coercing a target into acting friendly for hours takes
+        1d4 × 10 minutes. Coercing a target into acting friendly for days
+        requires you to successfully use coercion at least once per week for 1d6
+        weeks without failing any Intimidate checks against the target during
+        that time.
+      </p>
+      <p>
+        <b>Check:</b> By spending more time threatening or harassing a target,
+        you can attempt to force a creature to act friendly toward you for 1d6
+        hours + 1 hour for every 5 points by which you exceed the DC. If you
+        succeed at such a check against the same target at least once per week
+        for 1d6 weeks (without ever failing any Intimidate checks against the
+        target during that time), the duration of the coercion increases to 2d8
+        days. Coercion is overt, not subtle, and in most cases using coercion
+        against a creature is an evil act.
+      </p>
+      <p>
+        A coerced target acts as though friendly toward you even when you aren’t
+        around, but the aid offered remains grudging at best. The target’s true
+        attitude is hostile, and if the target believes it can take an action to
+        hinder you that can’t be traced back to it, it’s likely to take such
+        opportunities.
+      </p>
+      <p>
+        Creatures attempting to enlist its aid against you can often do so by
+        convincing the target they are able to protect it from your wrath, using
+        the normal Diplomacy rules.
+      </p>
+      <p>
+        <b>Demoralize Opponent</b>
+      </p>
+      <p>
+        You can use this skill to cause an opponent to become shaken for a
+        number of rounds. This shaken condition doesn’t stack with other shaken
+        conditions to make an affected creature frightened. The DC of this check
+        is equal to 10 + the target’s Hit Dice + the target’s Wisdom modifier.
+      </p>
+      <ul>
+        <li></li>
+      </ul>
+    </>
+  ),
+  handleAnimal: (
+    <>
+      <p>
+        <ListGroupItemHeading>
+          Handle Animal (Cha; Trained Only)
+        </ListGroupItemHeading>
+      </p>
+      <p>
+        You are trained at working with animals, and can teach them tricks, get
+        them to follow your simple commands, or even domesticate them.
+      </p>
+      <p>
+        <b>
+          <ListGroupItemHeading>Common Uses</ListGroupItemHeading>
+        </b>
+      </p>
+      <p>
+        <b>Handle an Animal</b>
+      </p>
+      <p>
+        This task involves commanding an animal to perform a task or trick that
+        it knows. If the animal is wounded or has taken any nonlethal damage or
+        ability score damage, the DC increases by 2. If your check succeeds, the
+        animal performs the task or trick on its next action.
+      </p>
+      <p>
+        <b>Push An Animal</b>
+      </p>
+      <p>
+        To push an animal means to get it to perform a task or trick that it
+        doesn’t know but is physically capable of performing. This category also
+        covers making an animal perform a forced march or forcing it to hustle
+        for more than 1 hour between sleep cycles. If the animal is wounded or
+        has taken any nonlethal damage or ability score damage, the DC increases
+        by 2. If your check succeeds, the animal performs the task or trick on
+        its next action.
+      </p>
+      <p>
+        <b>Teach an Animal a Trick</b>
+      </p>
+      <p>
+        You can teach an animal a specific trick with one week of work and a
+        successful Handle Animal check against the indicated DC. An animal with
+        an Intelligence score of 1 can learn a maximum of three tricks, while an
+        animal with an Intelligence score of 2 can learn a maximum of six
+        tricks.
+      </p>
+    </>
+  ),
   fly: (
     <>
       <p>
-        <b>Fly (Dex; Armor Check Penalty)</b>
+        <ListGroupItemHeading>
+          Fly (Dex; Armor Check Penalty)
+        </ListGroupItemHeading>
       </p>
       <p>
         You are skilled at flying, either through the use of wings or magic, and
@@ -23,7 +375,9 @@ const Information = {
   escapeArtist: (
     <>
       <p>
-        <b>Escape Artist (Dex; Armor Check Penalty)</b>
+        <ListGroupItemHeading>
+          Escape Artist (Dex; Armor Check Penalty)
+        </ListGroupItemHeading>
       </p>
       <p>Your training allows you to slip bonds and escape from grapples.</p>
       <p>
@@ -50,7 +404,7 @@ const Information = {
   disguise: (
     <>
       <p>
-        <b>Disguise (Cha)</b>
+        <ListGroupItemHeading>Disguise (Cha)</ListGroupItemHeading>
       </p>
       <p>You are skilled at changing your appearance.</p>
       <p>
@@ -78,7 +432,9 @@ const Information = {
   disableDevice: (
     <>
       <p>
-        <b>Disable Device (Dex; Armor Check Penalty; Trained Only)</b>
+        <ListGroupItemHeading>
+          Disable Device (Dex; Armor Check Penalty; Trained Only)
+        </ListGroupItemHeading>
       </p>
       <p>
         You are skilled at disarming traps and opening locks. In addition, this
@@ -110,7 +466,7 @@ const Information = {
   diplomacy: (
     <>
       <p>
-        <b>Diplomacy (Cha)</b>
+        <ListGroupItemHeading>Diplomacy (Cha)</ListGroupItemHeading>
       </p>
       <p>
         You can use this skill to persuade others to agree with your arguments,
@@ -119,9 +475,9 @@ const Information = {
         proper etiquette and manners suitable to the problem.
       </p>
       <p>
-        <u>
+        <ListGroupItemHeading>
           <b>Common Uses</b>
-        </u>
+        </ListGroupItemHeading>
       </p>
       <p>
         <b>Gather Information</b>
@@ -222,17 +578,102 @@ const Information = {
       </p>
     </>
   ),
+  Rogue: (
+    <>
+      <p>
+        <ListGroupItemHeading>
+          <b>Rogue</b>
+        </ListGroupItemHeading>
+      </p>
+      <p>
+        Life is an endless adventure for those who live by their wits. Ever just
+        one step ahead of danger, rogues bank on their cunning, skill, and charm
+        to bend fate to their favor. Never knowing what to expect, they prepare
+        for everything, becoming masters of a wide variety of skills, training
+        themselves to be adept manipulators, agile acrobats, shadowy stalkers,
+        or masters of any of dozens of other professions or talents. Thieves and
+        gamblers, fast talkers and diplomats, bandits and bounty hunters, and
+        explorers and investigators all might be considered rogues, as well as
+        countless other professions that rely upon wits, prowess, or luck.
+        Although many rogues favor cities and the innumerable opportunities of
+        civilization, some embrace lives on the road, journeying far, meeting
+        exotic people, and facing fantastic danger in pursuit of equally
+        fantastic riches. In the end, any who desire to shape their fates and
+        live life on their own terms might come to be called rogues.
+      </p>
+      <p>
+        <b>Role:</b> Rogues excel at moving about unseen and catching foes
+        unaware, and tend to avoid head-to-head combat. Their varied skills and
+        abilities allow them to be highly versatile, with great variations in
+        expertise existing between different rogues. Most, however, excel in
+        overcoming hindrances of all types, from unlocking doors and disarming
+        traps to outwitting magical hazards and conning dull-witted opponents.
+      </p>
+    </>
+  ),
   Bard: (
     <>
       <p>
-        <b>Bard</b>
+        <ListGroupItemHeading>
+          <b>Bard</b>
+        </ListGroupItemHeading>
+      </p>
+      <p>
+        Untold wonders and secrets exist for those skillful enough to discover
+        them. Through cleverness, talent, and magic, these cunning few unravel
+        the wiles of the world, becoming adept in the arts of persuasion,
+        manipulation, and inspiration. Typically masters of one or many forms of
+        artistry, bards possess an uncanny ability to know more than they should
+        and use what they learn to keep themselves and their allies ever one
+        step ahead of danger. Bards are quick-witted and captivating, and their
+        skills might lead them down many paths, be they gamblers or
+        jacks-of-all-trades, scholars or performers, leaders or scoundrels, or
+        even all of the above. For bards, every day brings its own
+        opportunities, adventures, and challenges, and only by bucking the odds,
+        knowing the most, and being the best might they claim the treasures of
+        each.
+      </p>
+      <p>
+        <b>Role:</b> Bards capably confuse and confound their foes while
+        inspiring their allies to ever-greater daring. While accomplished with
+        both weapons and magic, the true strength of bards lies outside melee,
+        where they can support their companions and undermine their foes without
+        fear of interruptions to their performances.
+      </p>
+    </>
+  ),
+  Wizard: (
+    <>
+      <p>
+        <ListGroupItemHeading>Wizard</ListGroupItemHeading>
+      </p>
+      <p>
+        Beyond the veil of the mundane hide the secrets of absolute power. The
+        works of beings beyond mortals, the legends of realms where gods and
+        spirits tread, the lore of creations both wondrous and terrible—such
+        mysteries call to those with the ambition and the intellect to rise
+        above the common folk to grasp true might. Such is the path of the
+        wizard. These shrewd magic-users seek, collect, and covet esoteric
+        knowledge, drawing on cultic arts to work wonders beyond the abilities
+        of mere mortals. While some might choose a particular field of magical
+        study and become masters of such powers, others embrace versatility,
+        reveling in the unbounded wonders of all magic. In either case, wizards
+        prove a cunning and potent lot, capable of smiting their foes,
+        empowering their allies, and shaping the world to their every desire.
+      </p>
+      <p>
+        <b>Role:</b> While universalist wizards might study to prepare
+        themselves for any manner of danger, specialist wizards research schools
+        of magic that make them exceptionally skilled within a specific focus.
+        Yet no matter their specialty, all wizards are masters of the impossible
+        and can aid their allies in overcoming any danger.
       </p>
     </>
   ),
   Barbarian: (
     <>
       <p>
-        <b>Barbarian</b>
+        <ListGroupItemHeading>Barbarian</ListGroupItemHeading>
       </p>
       <p>
         For some, there is only rage. In the ways of their people, in the fury
@@ -608,4 +1049,13 @@ const Information = {
     </>
   ),
 };
+Information.knowledgeDungeoneering = Information.knowledgeArcana;
+Information.knowledgeEngineering = Information.knowledgeArcana;
+Information.knowledgeGeography = Information.knowledgeArcana;
+Information.knowledgeHistory = Information.knowledgeArcana;
+Information.knowledgeLocal = Information.knowledgeArcana;
+Information.knowledgeNature = Information.knowledgeArcana;
+Information.knowledgeNobility = Information.knowledgeArcana;
+Information.knowledgePlanes = Information.knowledgeArcana;
+Information.knowledgeReligion = Information.knowledgeArcana;
 export default Information;

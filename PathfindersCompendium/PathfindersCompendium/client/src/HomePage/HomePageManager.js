@@ -7,7 +7,7 @@ import CharacterSheet from "../components/CharacterSheet";
 
 const HomePageManager = () => {
   const { getCurrentUser, getToken } = useContext(UserProfileContext);
-  const [sheets, setSheets] = useState();
+  const [sheets, setSheets] = useState([]);
   const [classes, setClasses] = useState([]);
   const [sheetState, setSheetState] = useState(false);
   const [sheetToEdit, setEditing] = useState({});
@@ -62,11 +62,11 @@ const HomePageManager = () => {
   const ListSheets = () => {
     if (sheets === undefined) {
       setSheetState(false);
-      return;
+      // return;
     }
     if (sheets[0] === undefined) {
       setSheetState(false);
-      return;
+      // return;
     }
     setEditing(sheets[0]);
     setSheetState(true);
@@ -123,8 +123,8 @@ const HomePageManager = () => {
         </Container>
       ) : (
         <>
-          {ListSheets()}
           <h1>You currently have no character sheets!</h1>
+          {ListSheets()}
           <Button
             color="primary"
             onClick={(e) => AddCharacter().then(getSheets)}

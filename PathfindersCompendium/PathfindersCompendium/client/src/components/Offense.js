@@ -22,12 +22,13 @@ const Offense = ({ handleChange, newSheet }) => {
     }
   };
   const CalcAttack = (aa, bb, cc) => {
-    return aa + bb + cc;
+    console.log(aa, bb, cc, aa + bb + cc);
+    return (isNaN(aa) ? 0 : aa) + (isNaN(bb) ? 0 : bb) + (isNaN(cc) ? 0 : cc);
   };
   return (
     <>
       <Col sm={{ offset: 2 }}>
-        <Row>
+        <Row style={{ textAlign: "right" }}>
           <Label size="sm" md={2} onClick={(e) => setToggle("bab")}>
             Base Attack Bonus:
           </Label>
@@ -53,7 +54,7 @@ const Offense = ({ handleChange, newSheet }) => {
             <Input name="cmb" defaultValue={parseInt(newSheet.cmb)} />
           </Col>
         </Row>
-        <Row>
+        <Row style={{ textAlign: "right" }}>
           <Label size="sm" md={2} for="melee">
             Melee:
           </Label>
@@ -70,7 +71,7 @@ const Offense = ({ handleChange, newSheet }) => {
               title="Strength Mod + Melee Mod + Temp Mod"
               readOnly
               value={CalcAttack(
-                parseInt(newSheet.strMod),
+                Math.floor((parseInt(newSheet.str) - 10) / 2),
                 parseInt(newSheet.melee),
                 isNaN(parseInt(newSheet.tempMelee))
                   ? 0
@@ -103,7 +104,7 @@ const Offense = ({ handleChange, newSheet }) => {
               readOnly
               title="Dexterity Mod + Ranged Modifier"
               value={CalcAttack(
-                parseInt(newSheet.dexMod),
+                Math.floor((parseInt(newSheet.dex) - 10) / 2),
                 parseInt(newSheet.ranged),
                 isNaN(parseInt(newSheet.tempRanged))
                   ? 0
@@ -120,7 +121,7 @@ const Offense = ({ handleChange, newSheet }) => {
             />
           </Col>
         </Row>
-        <Row>
+        <Row style={{ textAlign: "right" }}>
           <Label size="sm" md={2} for="cmd">
             CMD:
           </Label>
@@ -146,7 +147,7 @@ const Offense = ({ handleChange, newSheet }) => {
             />
           </Col>
           <Label size="sm" md={2} for="spellResistance">
-            Spell Resistance
+            Spell Resistance:
           </Label>
           <Col size="sm" sm={1} name="spellResistance">
             <Input

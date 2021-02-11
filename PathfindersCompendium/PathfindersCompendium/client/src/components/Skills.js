@@ -56,7 +56,11 @@ const Skills = ({ skill, handleChange, newSheet }) => {
       result += parseInt(newSheet.strMod);
       return result;
     }
-    if (["Profession", "Survival", "Perception", "Heal"].includes(skill1)) {
+    if (
+      ["Profession", "Survival", "Perception", "Heal", "Sense Motive"].includes(
+        skill1
+      )
+    ) {
       result += parseInt(newSheet.wisMod);
       return result;
     }
@@ -115,8 +119,10 @@ const Skills = ({ skill, handleChange, newSheet }) => {
 
   return (
     <>
-      <Col md={{ offset: 2 }}>
-        <Row>
+      <Col
+      // md={{ offset: 2 }}
+      >
+        <Row style={{ textAlign: "left" }}>
           <Label
             size="sm"
             md={2}
@@ -124,8 +130,8 @@ const Skills = ({ skill, handleChange, newSheet }) => {
             onClick={(e) => setToggle(getName(skill))}
           >
             {skill}
-          </Label>
-          <Col size="sm" sm={1}>
+          </Label>{" "}
+          <Col size="sm" md={{ size: 2, offset: 2 }}>
             <Input
               id={skill}
               name={getName(skill)}
@@ -133,7 +139,7 @@ const Skills = ({ skill, handleChange, newSheet }) => {
               onChange={(e) => handleChange(e)}
             />
           </Col>
-          <Col size="sm" sm={1}>
+          <Col size="sm" sm={2}>
             <Input readOnly value={skillMath(skill)} />
           </Col>
         </Row>

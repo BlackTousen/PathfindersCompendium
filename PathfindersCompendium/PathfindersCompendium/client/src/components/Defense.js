@@ -16,11 +16,15 @@ const Defense = ({ handleChange, newSheet }) => {
   return (
     <>
       <Col sm={{ offset: 2 }}>
-        <Row>
-          <Label size="sm" md={2} onClick={(e) => setToggle("AC")}>
+        <Row style={{ textAlign: "right" }}>
+          <Label
+            size="sm"
+            md={{ size: 2, textAlign: "left" }}
+            onClick={(e) => setToggle("AC")}
+          >
             AC
           </Label>
-          <Col size="sm" sm={1}>
+          <Col size="sm" sm={1} style={{ textAlign: "left" }}>
             <Input readOnly value={CalcAC(parseInt(newSheet.ac))} />
           </Col>
           <Col size="sm" sm={1}>
@@ -52,7 +56,7 @@ const Defense = ({ handleChange, newSheet }) => {
             />
           </Col>
         </Row>
-        <Row>
+        <Row style={{ textAlign: "right" }}>
           <Label
             size="sm"
             md={2}

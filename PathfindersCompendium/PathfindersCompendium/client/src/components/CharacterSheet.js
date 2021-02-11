@@ -126,8 +126,10 @@ const CharacterSheet = ({
         <TabPanel>
           <Form>
             <Row>
-              <Col></Col>
-              <Col sm={6}>
+              {/* <Col></Col> */}
+              <Col
+              // sm={6}
+              >
                 <FormGroup>
                   <Row>
                     <Col sm={6}>
@@ -146,7 +148,11 @@ const CharacterSheet = ({
                       />
                     </Col>
                     <Col sm={6}>
-                      <Label size="sm" for="alignment">
+                      <Label
+                        size="sm"
+                        for="alignment"
+                        onClick={(e) => setToggle("Alignment")}
+                      >
                         Alignment:
                       </Label>
                       <Input
@@ -167,10 +173,7 @@ const CharacterSheet = ({
                         for="class"
                         // onClick={(e) => {
                         //   console.log(
-                        //     document.getElementsByName("classId").options[
-                        //       document.getElementsByName("classId")
-                        //         .selectedIndex
-                        //     ].text
+                        //     e.target.options[e.target.selectedIndex].text
                         //   );
                         // }}
                       >
@@ -352,42 +355,65 @@ const CharacterSheet = ({
                 </FormGroup>
               </Col>
             </Row>
-            <Defense handleChange={handleChange} newSheet={sheetToEdit} />
-            <Offense handleChange={handleChange} newSheet={sheetToEdit} />
-            <FormGroup>
-              {attributes.map((att) => {
-                return (
-                  <Attributes
-                    key={att}
-                    attribute={att}
-                    handleChange={handleChange}
-                    newSheet={sheetToEdit}
-                  />
-                );
-              })}
-            </FormGroup>
-            <FormGroup>
-              {skills.map((att) => {
-                return (
-                  <Skills
-                    key={att}
-                    skill={att}
-                    handleChange={handleChange}
-                    newSheet={sheetToEdit}
-                  />
-                );
-              })}
-            </FormGroup>
-            <FormGroup>
-              <Row>
-                Speed:
-                <Col md={2}>Land: {sheet.landSpeed}</Col>
-                <Col md={2}>Run: {sheet.landSpeed * 4}</Col>
-                <Col md={2}>Swim: {sheet.swimSpeed}</Col>
-                <Col md={2}>Climb: {sheet.climbSpeed}</Col>
-                <Col md={2}>Fly: {sheet.flySpeed}</Col>
-              </Row>
-            </FormGroup>
+            <br></br>
+            <Row>
+              <Defense handleChange={handleChange} newSheet={sheetToEdit} />
+            </Row>
+            <br></br>
+            <Row>
+              <Offense handleChange={handleChange} newSheet={sheetToEdit} />
+            </Row>
+            <br></br>
+            <Row>
+              <Col>
+                <Row>
+                  <FormGroup>
+                    <h4 onClick={(e) => setToggle("AbilityScores")}>
+                      Ability Scores
+                    </h4>
+                    <br></br>
+                    {attributes.map((att) => {
+                      return (
+                        <Attributes
+                          key={att}
+                          attribute={att}
+                          handleChange={handleChange}
+                          newSheet={sheetToEdit}
+                        />
+                      );
+                    })}
+                  </FormGroup>
+                </Row>
+                <br></br>
+                <FormGroup>
+                  <h4>Speed</h4>
+                  <br></br>
+                  <Row style={{ justifyContent: "center" }}>
+                    <Col md={2}>Land: {sheet.landSpeed}</Col>
+                    <Col md={2}>Run: {sheet.landSpeed * 4}</Col>
+                    <Col md={2}>Swim: {sheet.swimSpeed}</Col>
+                    <Col md={2}>Climb: {sheet.climbSpeed}</Col>
+                    <Col md={2}>Fly: {sheet.flySpeed}</Col>
+                  </Row>
+                </FormGroup>
+              </Col>
+              <Col>
+                <FormGroup>
+                  <h4 onClick={(e) => setToggle("Skills")}>Skills</h4>
+                  <br></br>
+                  {skills.map((att) => {
+                    return (
+                      <Skills
+                        key={att}
+                        skill={att}
+                        handleChange={handleChange}
+                        newSheet={sheetToEdit}
+                      />
+                    );
+                  })}
+                </FormGroup>
+              </Col>
+            </Row>
           </Form>
         </TabPanel>
         <TabPanel>
