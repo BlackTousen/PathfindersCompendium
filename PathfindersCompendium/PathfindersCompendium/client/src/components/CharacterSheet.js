@@ -55,7 +55,6 @@ const CharacterSheet = ({
   const handleChange = (e) => {
     const newSheet = { ...sheetToEdit };
     newSheet[e.target.name] = e.target.value;
-    console.log(e.target.name);
     setEditing(newSheet);
   };
 
@@ -169,21 +168,11 @@ const CharacterSheet = ({
                   </Row>
                   <Row>
                     <Col sm={4}>
-                      <Label
-                        for="class"
-                        // onClick={(e) => {
-                        //   console.log(
-                        //     e.target.options[e.target.selectedIndex].text
-                        //   );
-                        // }}
-                      >
-                        Class:
-                      </Label>
+                      <Label for="class">Class:</Label>
                       <Input
                         size="sm"
                         type="select"
                         name="classId"
-                        // onClick={(e) => setToggle()}
                         onChange={(e) => {
                           e.preventDefault();
                           handleChange(e);

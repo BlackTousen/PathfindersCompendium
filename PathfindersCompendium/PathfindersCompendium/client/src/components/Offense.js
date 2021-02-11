@@ -22,7 +22,6 @@ const Offense = ({ handleChange, newSheet }) => {
     }
   };
   const CalcAttack = (aa, bb, cc) => {
-    console.log(aa, bb, cc, aa + bb + cc);
     return (isNaN(aa) ? 0 : aa) + (isNaN(bb) ? 0 : bb) + (isNaN(cc) ? 0 : cc);
   };
   return (
