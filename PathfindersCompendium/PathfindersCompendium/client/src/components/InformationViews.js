@@ -1,8 +1,10 @@
 import React, { useContext, useState } from "react";
-import { Container } from "reactstrap";
+import { TabList, TabPanel, Tabs, Tab } from "react-tabs";
+import { Container, ListGroupItemHeading } from "reactstrap";
 import { InformationDataContext } from "../providers/InformationDataProvider";
 import { UserProfileContext } from "../providers/UserProfileProvider";
 import Information from "./AC";
+import GetStarted from "./GetStarted";
 
 const InformationViews = () => {
   const { isLoggedIn } = useContext(UserProfileContext);
@@ -14,7 +16,22 @@ const InformationViews = () => {
   return (
     <>
       <Container>
-        <div style={{ textAlign: "left" }}>{dataArray[toggle]}</div>
+        <Tabs>
+          <TabList>
+            <Tab>Get Started</Tab>
+            <Tab>Information</Tab>
+            <Tab>Search</Tab>{" "}
+          </TabList>
+          <TabPanel>
+            <GetStarted />
+          </TabPanel>
+          <TabPanel>
+            <div style={{ textAlign: "left" }}>{dataArray[toggle]}</div>
+          </TabPanel>
+          <TabPanel>
+            <ListGroupItemHeading>Not Yet Implemented</ListGroupItemHeading>
+          </TabPanel>
+        </Tabs>
       </Container>
     </>
   );

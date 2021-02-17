@@ -28,7 +28,7 @@ const Offense = ({ handleChange, newSheet }) => {
     <>
       <Col sm={{ offset: 2 }}>
         <Row style={{ textAlign: "right" }}>
-          <Label size="sm" md={2} onClick={(e) => setToggle("bab")}>
+          <Label size="sm" md={2} onClick={(e) => setToggle("BAB")}>
             Base Attack Bonus:
           </Label>
           <Col size="sm" sm={1}>
@@ -46,7 +46,7 @@ const Offense = ({ handleChange, newSheet }) => {
               )}
             />
           </Col>
-          <Label size="sm" md={2} for="cmb">
+          <Label size="sm" md={2} for="cmb" onClick={(e) => setToggle("CMB")}>
             CMB:
           </Label>
           <Col size="sm" sm={1}>
@@ -54,7 +54,12 @@ const Offense = ({ handleChange, newSheet }) => {
           </Col>
         </Row>
         <Row style={{ textAlign: "right" }}>
-          <Label size="sm" md={2} for="melee">
+          <Label
+            size="sm"
+            md={2}
+            for="melee"
+            onClick={(e) => setToggle("Melee")}
+          >
             Melee:
           </Label>
           <Col size="sm" sm={1}>
@@ -121,7 +126,7 @@ const Offense = ({ handleChange, newSheet }) => {
           </Col>
         </Row>
         <Row style={{ textAlign: "right" }}>
-          <Label size="sm" md={2} for="cmd">
+          <Label size="sm" md={2} for="cmd" onClick={(e) => setToggle("CMD")}>
             CMD:
           </Label>
           <Col size="sm" sm={1}>
@@ -145,7 +150,12 @@ const Offense = ({ handleChange, newSheet }) => {
               onChange={(e) => handleChange(e)}
             />
           </Col>
-          <Label size="sm" md={2} for="spellResistance">
+          <Label
+            size="sm"
+            md={2}
+            for="spellResistance"
+            onClick={(e) => setToggle("SR")}
+          >
             Spell Resistance:
           </Label>
           <Col size="sm" sm={1} name="spellResistance">

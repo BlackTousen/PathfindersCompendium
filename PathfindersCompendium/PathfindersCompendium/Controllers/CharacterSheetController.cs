@@ -78,17 +78,11 @@ namespace PathfindersCompendium.Controllers
             existingSheet.HP = sheet.HP;
             existingSheet.MHP = sheet.MHP;
             existingSheet.TempHP = sheet.TempHP;
-            if (sheet.Str == 0) { sheet.Str = 10; }
             existingSheet.Str = sheet.Str;
-            if (sheet.Dex == 0) { sheet.Dex = 10; }
             existingSheet.Dex = sheet.Dex;
-            if (sheet.Con == 0) { sheet.Con = 10; }
             existingSheet.Con = sheet.Con;
-            if (sheet.Int == 0) { sheet.Int = 10; }
             existingSheet.Int = sheet.Int;
-            if (sheet.Wis == 0) { sheet.Wis = 10; }
             existingSheet.Wis = sheet.Wis;
-            if (sheet.Cha == 0) { sheet.Cha = 10; }
             existingSheet.Cha = sheet.Cha;
             existingSheet.StrMod = Convert.ToInt32(Math.Floor(((double)sheet.Str - 10) / 2));
             existingSheet.DexMod = Convert.ToInt32(Math.Floor(((double)sheet.Dex - 10) / 2));

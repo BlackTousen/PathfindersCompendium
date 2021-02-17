@@ -2,6 +2,79 @@ import { ListGroupItemHeading } from "reactstrap";
 import { InformationDataContext } from "../providers/InformationDataProvider";
 
 const Information = {
+  SR: (
+    <>
+      <p>
+        <ListGroupItemHeading>
+          <b>Spell Resistance (SR)</b>
+        </ListGroupItemHeading>
+      </p>
+      <p>
+        Some creatures are resistant to magic and gain spell resistance. When a
+        creature with spell resistance is targeted by a spell, the caster of the
+        spell must make a caster level check to see if the spell affects the
+        target. The DC of this check is equal to the target creature’s SR (some
+        spells do not allow SR checks).
+      </p>
+    </>
+  ),
+  Melee: (
+    <>
+      <p>
+        <ListGroupItemHeading>
+          <b>Melee Attack</b>
+        </ListGroupItemHeading>
+      </p>
+      <p>
+        An attack in hand-to-hand combat. A basic melee attack is a d20 roll +
+        base attack bonus + Strength modifier + any related or magical bonuses.
+      </p>
+    </>
+  ),
+  CMD: (
+    <>
+      <p>
+        <ListGroupItemHeading>
+          <b>Combat Maneuver Defense (CMD)</b>
+        </ListGroupItemHeading>
+      </p>
+      <p>
+        Combat Maneuver Defense represents how hard it is to perform a combat
+        maneuver against this creature. A creature’s CMD is used as the
+        difficulty class when performing a maneuver against that creature.
+      </p>
+    </>
+  ),
+  CMB: (
+    <>
+      <p>
+        <ListGroupItemHeading>
+          <b>Combat Maneuver Bonus (CMB)</b>
+        </ListGroupItemHeading>
+      </p>
+      <p>
+        Combat Maneuver Bonus represents how skilled a creature is at performing
+        a combat maneuver. When attempting to perform a combat maneuver, this
+        value is added to the character’s d20 roll.
+      </p>
+    </>
+  ),
+  BAB: (
+    <>
+      <p>
+        <ListGroupItemHeading>
+          <b>Base Attack Bonus (BAB)</b>
+        </ListGroupItemHeading>
+      </p>
+      <p>
+        Each creature has a base attack bonus and it represents its skill in
+        combat. As a character gains levels or Hit Dice, his base attack bonus
+        improves. When a creature’s base attack bonus reaches +6, +11, or +16,
+        he receives an additional attack in combat when he takes a full-attack
+        action (which is one type of full-round action).
+      </p>
+    </>
+  ),
   AbilityScores: (
     <>
       <p>

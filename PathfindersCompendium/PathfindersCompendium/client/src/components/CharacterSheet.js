@@ -426,14 +426,22 @@ const CharacterSheet = ({
       <br></br>
       <Button
         color="primary"
-        onClick={(e) => SaveCharacter(sheetToEdit).then(getSheets)}
+        onClick={(e) =>
+          SaveCharacter(sheetToEdit).then((_) => {
+            getSheets();
+          })
+        }
       >
         Save Changes
       </Button>
       {"   "}
       <Button
         color="danger"
-        onClick={(e) => DeleteCharacter(sheetToEdit).then(getSheets)}
+        onClick={(e) =>
+          DeleteCharacter(sheetToEdit).then((_) => {
+            getSheets();
+          })
+        }
       >
         Delete Character
       </Button>
